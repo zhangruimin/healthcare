@@ -1,5 +1,6 @@
 package com.fengtuo.healthcare.service;
 
+import com.fengtuo.healthcare.builder.PacketStreamBuilder;
 import com.fengtuo.healthcare.model.*;
 import com.fengtuo.healthcare.util.CollectionUtils;
 import org.junit.Test;
@@ -33,7 +34,19 @@ public class HealthRecordExtractorTest {
         Byte[] waveType = {1};
         Byte[] waveData = {1};
 
-        byte[] streamBytes = getPacketStream(header, signalStrength, deviceType, deviceStatus, statusParam, deviceId, date, validBytes, dateType, digitData, waveType, waveData);
+        byte[] streamBytes = new PacketStreamBuilder(header,
+                signalStrength,
+                deviceType,
+                deviceStatus,
+                statusParam,
+                deviceId,
+                date,
+                validBytes,
+                dateType,
+                digitData,
+                waveType,
+                waveData)
+                .build();
 
         Packet packet = HealthRecordExtractor.extract(streamBytes);
 

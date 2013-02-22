@@ -1,5 +1,6 @@
 package com.fengtuo.healthcare.repository;
 
+import com.fengtuo.healthcare.model.DigitRecord;
 import org.springframework.data.mongodb.core.MongoOperations;
 
 import java.util.List;
@@ -32,5 +33,9 @@ public class RepositoryBase<T> {
 
     public void removeAll(){
         mongoOperations.dropCollection(collectionName);
+    }
+
+    public void insertAll(List<T> records) {
+        mongoOperations.insertAll(records);
     }
 }
