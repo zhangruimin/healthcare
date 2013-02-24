@@ -15,6 +15,15 @@ import java.util.List;
 public class RepositoryBase<T> {
     private final Class<T> type;
     private final String collectionName;
+
+    public MongoOperations getMongoOperations() {
+        return mongoOperations;
+    }
+
+    public void setMongoOperations(MongoOperations mongoOperations) {
+        this.mongoOperations = mongoOperations;
+    }
+
     private MongoOperations mongoOperations;
 
     public RepositoryBase(MongoOperations mongoOperations, String collectionName, Class<T> type) {
@@ -35,7 +44,7 @@ public class RepositoryBase<T> {
         mongoOperations.dropCollection(collectionName);
     }
 
-    public void insertAll(List<T> records) {
-        mongoOperations.insertAll(records);
+    public void insert(List<T> records) {
+        mongoOperations.insert(records,collectionName);
     }
 }

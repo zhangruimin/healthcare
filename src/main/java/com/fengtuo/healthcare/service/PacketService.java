@@ -1,5 +1,6 @@
 package com.fengtuo.healthcare.service;
 
+import com.fengtuo.healthcare.extractor.HealthRecordExtractor;
 import com.fengtuo.healthcare.model.Packet;
 import com.fengtuo.healthcare.repository.PacketRepository;
 
@@ -11,6 +12,14 @@ import com.fengtuo.healthcare.repository.PacketRepository;
  * To change this template use File | Settings | File Templates.
  */
 public class PacketService {
+    public PacketRepository getPacketRepository() {
+        return packetRepository;
+    }
+
+    public void setPacketRepository(PacketRepository packetRepository) {
+        this.packetRepository = packetRepository;
+    }
+
     private PacketRepository packetRepository;
 
     public PacketService(PacketRepository packetRepository){
@@ -18,7 +27,6 @@ public class PacketService {
     }
 
     public PacketService() {
-
     }
 
     public void savePacket(byte[] packetStream){

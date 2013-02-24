@@ -41,4 +41,8 @@ public class Packet {
     public void addRecord(DigitRecord digitRecord) {
         digitRecords.add(digitRecord);
     }
+
+    public void addRecord(WaveRecord waveRecord) {
+        waveRecords.add(waveRecord);
+    }
 }

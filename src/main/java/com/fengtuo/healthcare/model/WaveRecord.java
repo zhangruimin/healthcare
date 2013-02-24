@@ -14,6 +14,9 @@ public class WaveRecord extends HealthRecord {
         super(deviceId);
     }
 
+    public WaveRecord() {
+    }
+
     public WaveType getWaveType() {
         return waveType;
     }

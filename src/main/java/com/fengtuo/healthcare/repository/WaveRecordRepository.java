@@ -16,4 +16,8 @@ public class WaveRecordRepository extends RepositoryBase<WaveRecord> {
     public WaveRecordRepository(MongoOperations mongoOperations) {
         super(mongoOperations, COLLECTION, WaveRecord.class);
     }
+
+    public WaveRecordRepository() {
+        this(null);
+    }
 }

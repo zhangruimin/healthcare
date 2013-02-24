@@ -1,5 +1,6 @@
 package com.fengtuo.healthcare.repository;
 
+import com.fengtuo.healthcare.db.MongoDbBaseTest;
 import com.fengtuo.healthcare.db.SpringMongoConfig;
 import com.fengtuo.healthcare.model.DataType;
 import com.fengtuo.healthcare.model.DigitRecord;
@@ -14,17 +15,12 @@ import java.util.List;
 import static org.fest.assertions.Assertions.assertThat;
 
 
-public class DigitRecordRepositoryTest
+public class DigitRecordRepositoryTest extends MongoDbBaseTest
 {
     private DigitRecordRepository repository;
 
     @Before
     public void set_up(){
-        ApplicationContext ctx =
-                new AnnotationConfigApplicationContext(SpringMongoConfig.class);
-
-        MongoOperations mongoOperation =
-                (MongoOperations) ctx.getBean("mongoTemplate");
         repository = new DigitRecordRepository(mongoOperation);
         repository.removeAll();
     }

@@ -8,5 +8,15 @@ package com.fengtuo.healthcare.model;
  * To change this template use File | Settings | File Templates.
  */
 public enum WaveType {
-    HR
+    ECG, BO;
+
+    public static int getDataByteNumber(WaveType type) {
+        switch (type){
+            case ECG:
+                return 250;
+            case BO:
+                return 60;
+        }
+        return 0;
+    }
 }

@@ -11,6 +11,23 @@ import com.fengtuo.healthcare.model.Packet;
  */
 public class PacketRepository {
     private DigitRecordRepository digitRecordRepository;
+
+    public WaveRecordRepository getWaveRecordRepository() {
+        return waveRecordRepository;
+    }
+
+    public void setWaveRecordRepository(WaveRecordRepository waveRecordRepository) {
+        this.waveRecordRepository = waveRecordRepository;
+    }
+
+    public DigitRecordRepository getDigitRecordRepository() {
+        return digitRecordRepository;
+    }
+
+    public void setDigitRecordRepository(DigitRecordRepository digitRecordRepository) {
+        this.digitRecordRepository = digitRecordRepository;
+    }
+
     private WaveRecordRepository waveRecordRepository;
 
     public PacketRepository(DigitRecordRepository digitRecordRepository, WaveRecordRepository waveRecordRepository) {
@@ -18,8 +35,11 @@ public class PacketRepository {
         this.waveRecordRepository = waveRecordRepository;
     }
 
+    public PacketRepository() {
+    }
+
     public void save(Packet packet){
-        digitRecordRepository.insertAll(packet.getDigitRecords());
-        waveRecordRepository.insertAll(packet.getWaveRecords());
+        digitRecordRepository.insert(packet.getDigitRecords());
+        waveRecordRepository.insert(packet.getWaveRecords());
     }
 }

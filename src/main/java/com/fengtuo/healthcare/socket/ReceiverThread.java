@@ -1,12 +1,10 @@
 package com.fengtuo.healthcare.socket;
 
-import com.fengtuo.healthcare.service.HealthRecordExtractor;
 import com.fengtuo.healthcare.service.PacketService;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
-import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -47,13 +45,13 @@ public class ReceiverThread implements Runnable {
                 }
                 if (resultBuff.length > 0) {
                     previousTime = currentTime;
-//                    packetService.savePacket(resultBuff);
                     StringBuffer sb = new StringBuffer();
                     for (byte b : resultBuff) {
                         sb.append(b).append(",");
                     }
                     sb.deleteCharAt(sb.length()-1).append("-----");
                     System.out.println(sb.toString());
+                    packetService.savePacket(resultBuff);
                 }
                 Thread.sleep(50);
             }

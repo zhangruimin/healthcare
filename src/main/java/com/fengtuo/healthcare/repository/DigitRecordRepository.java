@@ -16,4 +16,8 @@ public class DigitRecordRepository extends RepositoryBase<DigitRecord> {
     public DigitRecordRepository(MongoOperations mongoOperations) {
         super(mongoOperations, COLLECTION, DigitRecord.class);
     }
+
+    public DigitRecordRepository() {
+        this(null);
+    }
 }

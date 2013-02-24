@@ -16,25 +16,37 @@ import java.rmi.UnknownHostException;
  * To change this template use File | Settings | File Templates.
  */
 public class ClientThread implements Runnable {
-    private static final int LOOP_NUM = 10;
+    private static final int LOOP_NUM = 10000;
+
     public ClientThread() {
     }
 
     @Override
     public void run() {
+        Socket socket = null;
+        OutputStream os = null;
         for (int i = 0; i < LOOP_NUM; i++)
             try {
-                Socket socket = new Socket("localhost", 5678);
-                OutputStream os = socket.getOutputStream();
+                socket = new Socket("localhost", 5001);
+                os = socket.getOutputStream();
                 os.write(new PacketStreamBuilder().build());
                 os.flush();
                 socket.shutdownOutput();
-                os.close();
-                socket.close();
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    if (socket != null) {
+                        socket.close();
+                    }
+                    if (os != null) {
+                        os.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
     }
