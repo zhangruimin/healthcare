@@ -18,7 +18,7 @@ public class HealthRecordExtractor {
         DeviceType deviceType = DeviceType.getType(data[4]);
         DeviceStatus deviceStatus = DeviceStatus.getType(data[5]);
         String deviceId = DeviceIdExtractor.extract(CollectionUtils.get(data, 7, 4));
-        Date timeStamp = TimeStampExtractor.extract(CollectionUtils.get(data, 11, 6));
+        Date timestamp = TimeStampExtractor.extract(CollectionUtils.get(data, 11, 6));
 
         byte[] digitDataTypeBytes = CollectionUtils.get(data, 19, 2);
         DigitDataTypesExtractor digitDataTypeExtractor = new DigitDataTypesExtractor(digitDataTypeBytes);
@@ -30,7 +30,7 @@ public class HealthRecordExtractor {
             digitRecord.setDeviceId(deviceId);
             digitRecord.setDataType(type);
             digitRecord.setData(CollectionUtils.get(data, digitDataTypeExtractor.getStartIndex(type), DataType.getDataByteNumber(type)));
-            digitRecord.setTimeStamp(timeStamp);
+            digitRecord.setTimestamp(timestamp);
             packet.addRecord(digitRecord);
         }
 
@@ -44,7 +44,7 @@ public class HealthRecordExtractor {
             waveRecord.setDeviceId(deviceId);
             waveRecord.setWaveType(type);
             waveRecord.setData(CollectionUtils.get(data, waveTypesExtractor.getStartIndex(type), WaveType.getDataByteNumber(type)));
-            waveRecord.setTimeStamp(timeStamp);
+            waveRecord.setTimestamp(timestamp);
             packet.addRecord(waveRecord);
         }
         return packet;

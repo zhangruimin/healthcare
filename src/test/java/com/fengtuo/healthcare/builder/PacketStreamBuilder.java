@@ -21,7 +21,7 @@ public class PacketStreamBuilder {
     byte[] deviceStatus = {0};
     byte[] statusParam = {0};
     byte[] deviceId = {0, 0, 0, 1};
-    byte[] date = {12, 2, 31, 23, 59, 59};
+    byte[] date = {13, 2, 16, 23, 20, 35};
     byte[] validBytes = {1, 2};
     byte[] digitDataTypes = {Byte.valueOf("00000000", 2), (byte)(Integer.valueOf("10101111", 2).intValue())};
     byte[] digitData = {67, 69, 98, 36, 50, 18, 4, 70};

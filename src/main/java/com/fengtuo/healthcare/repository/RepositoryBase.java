@@ -24,7 +24,7 @@ public class RepositoryBase<T> {
         this.mongoOperations = mongoOperations;
     }
 
-    private MongoOperations mongoOperations;
+    protected MongoOperations mongoOperations;
 
     public RepositoryBase(MongoOperations mongoOperations, String collectionName, Class<T> type) {
         this.mongoOperations = mongoOperations;

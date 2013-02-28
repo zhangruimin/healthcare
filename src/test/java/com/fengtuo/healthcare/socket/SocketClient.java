@@ -8,7 +8,7 @@ package com.fengtuo.healthcare.socket;
  * To change this template use File | Settings | File Templates.
  */
 public class SocketClient {
-    private static final int THREAD_NUM = 5;
+    private static final int THREAD_NUM = 1;
 
     public static void main(String[] args) throws Exception {
        for(int i = 0; i<THREAD_NUM;i++){

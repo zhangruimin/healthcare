@@ -32,10 +32,13 @@ public class ClientThread implements Runnable {
                 os.write(new PacketStreamBuilder().build());
                 os.flush();
                 socket.shutdownOutput();
+                Thread.sleep(1000*5);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             } finally {
                 try {
                     if (socket != null) {

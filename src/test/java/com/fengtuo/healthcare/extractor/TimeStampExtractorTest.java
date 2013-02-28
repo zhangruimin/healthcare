@@ -19,7 +19,7 @@ public class TimeStampExtractorTest {
     @Test
     public void should_extract_time_stamp() throws Exception {
         byte[] date = {12, 2, 13, 23, 59, 58};
-        Date timeStamp = TimeStampExtractor.extract(date);
-        assertThat(timeStamp).isEqualTo(DateUtils.parse("2012-02-13 23:59:58"));
+        Date timestamp = TimeStampExtractor.extract(date);
+        assertThat(timestamp).isEqualTo(DateUtils.parse("2012-02-13 23:59:58"));
     }
 }

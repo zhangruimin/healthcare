@@ -1,25 +1,31 @@
 function realTimeDataFetcher(totalPoints){
-    var stubData =[], currentData = [], buffer = [];
+    var stubData =[], currentData = [], waveRecord;
     var initValue = 0, isDataReady = false;
     function init(){
-        while (buffer.length < totalPoints) {
-            buffer.push(initValue);
+        while (stubData.length < totalPoints) {
+            stubData.push(initValue);
         }
         refreshData();
     }
 
     function refreshData(){
         currentData = [];
-        for(var i = 0; i < buffer.length; i++){
-            currentData.push([i, buffer[i]]);
+        if(waveRecord == null){
+            for(var i = 0; i < stubData.length; i++){
+                currentData.push([i, stubData[i]]);
+            }
+        }  else{
+            for(var i = 0; i < waveRecord.data.length; i++){
+                currentData.push([i, waveRecord.data[i]]);
+            }
         }
-//        isDataReady = false;
+
         $.ajax({
             url: "/healthcare/next.do",
             type: 'Get',
+            data: {timestamp:waveRecord==null?1:waveRecord.timestamp},
             success: function (data) {
-                buffer = data["data"];
-//                isDataReady = true;
+                waveRecord = data;
             },
             timeout: 30000,
             error: function () {
@@ -31,12 +37,8 @@ function realTimeDataFetcher(totalPoints){
     init();
     return{
         getNextPacket: function(){
-//            if(isDataReady){
-                refreshData();
-                return currentData;
-//            } else{
-//                return stubData;
-//            }
+            refreshData();
+            return currentData;
         }
     }
 }
@@ -80,6 +82,5 @@ $(function () {
         currentX = currentX%totalPoints;
         setTimeout(update, updateInterval);
     }
-
     update();
 });

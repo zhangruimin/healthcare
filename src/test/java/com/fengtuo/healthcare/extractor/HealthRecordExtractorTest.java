@@ -55,7 +55,7 @@ public class HealthRecordExtractorTest {
         assertThat(digitRecord.getDeviceType()).isEqualTo(DeviceType.Monitor);
         assertThat(digitRecord.getDeviceStatus()).isEqualTo(DeviceStatus.Normal);
         assertThat(digitRecord.getDeviceId()).isEqualTo(DeviceIdExtractor.extract(deviceId));
-        assertThat(digitRecord.getTimeStamp()).isEqualTo(TimeStampExtractor.extract(date));
+        assertThat(digitRecord.getTimestamp()).isEqualTo(TimeStampExtractor.extract(date));
         assertThat(digitRecord.getDataType()).isEqualTo(DataType.HR);
         assertThat(digitRecord.getData()).isEqualTo(digitData);
     }
@@ -132,7 +132,7 @@ public class HealthRecordExtractorTest {
         WaveRecord waveRecord = waveRecords.get(0);
         assertThat(waveRecord.getDeviceType()).isEqualTo(DeviceType.Monitor);
         assertThat(waveRecord.getDeviceStatus()).isEqualTo(DeviceStatus.Normal);
-        assertThat(waveRecord.getTimeStamp()).isEqualTo(TimeStampExtractor.extract(date));
+        assertThat(waveRecord.getTimestamp()).isEqualTo(TimeStampExtractor.extract(date));
         assertThat(waveRecord.getDeviceId()).isEqualTo(DeviceIdExtractor.extract(deviceId));
         assertThat(waveRecord.getWaveType()).isEqualTo(WaveType.ECG);
         assertThat(waveRecord.getData()).isEqualTo(waveData);

@@ -13,7 +13,7 @@ public class HealthRecord {
     private String deviceId;
     private DeviceType deviceType;
     private DeviceStatus deviceStatus;
-    private Date timeStamp;
+    private Date timestamp;
     private byte[] data;
 
     public HealthRecord(){
@@ -39,12 +39,12 @@ public class HealthRecord {
         this.deviceStatus = deviceStatus;
     }
 
-    public Date getTimeStamp() {
-        return timeStamp;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
     public byte[] getData() {

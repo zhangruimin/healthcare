@@ -1,4 +1,4 @@
-package com.fengtuo.healthcare.web;
+package com.fengtuo.healthcare.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
