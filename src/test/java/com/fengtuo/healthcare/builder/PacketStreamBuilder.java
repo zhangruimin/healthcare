@@ -1,10 +1,12 @@
 package com.fengtuo.healthcare.builder;
 
+import com.fengtuo.healthcare.extractor.TimeStampExtractor;
 import com.fengtuo.healthcare.util.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -92,6 +94,11 @@ public class PacketStreamBuilder {
 
     public PacketStreamBuilder withWaveData(byte[] waveData) {
         this.waveData = waveData;
+        return this;
+    }
+
+    public PacketStreamBuilder withTimestamp(Date timestamp) {
+        this.date = TimeStampExtractor.toBytes(timestamp);
         return this;
     }
 }

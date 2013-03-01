@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +38,22 @@ public class NextRealTimeDataController {
     public
     @ResponseBody
     WaveRecordDto next(@RequestParam long timestamp) {
-        WaveRecord waveRecord = waveRecordRepository.nextRecord(new Date(timestamp));
-        return waveRecord == null ? null : WaveRecordDto.from(waveRecord);
+        Date date = getDate(timestamp);
+        WaveRecord waveRecord = waveRecordRepository.nextRecord(date);
+        if(waveRecord == null){
+            waveRecord = new WaveRecord();
+            waveRecord.setTimestamp(date);
+            waveRecord.setData(new byte[250]);
+        }
+        return WaveRecordDto.from(waveRecord);
+    }
+
+    private Date getDate(long timestamp) {
+        if(timestamp == 0){
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.SECOND, -10);
+            return calendar.getTime();
+        }
+        return new Date(timestamp);
     }
 }

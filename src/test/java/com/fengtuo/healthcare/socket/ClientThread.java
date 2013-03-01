@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.rmi.UnknownHostException;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,16 +30,16 @@ public class ClientThread implements Runnable {
             try {
                 socket = new Socket("localhost", 5001);
                 os = socket.getOutputStream();
-                os.write(new PacketStreamBuilder().build());
+                os.write(new PacketStreamBuilder().withTimestamp(new Date()).build());
                 os.flush();
                 socket.shutdownOutput();
-                Thread.sleep(1000*5);
+                Thread.sleep(250*10);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                e.printStackTrace();
             } finally {
                 try {
                     if (socket != null) {

@@ -23,7 +23,7 @@ function realTimeDataFetcher(totalPoints){
         $.ajax({
             url: "/healthcare/next.do",
             type: 'Get',
-            data: {timestamp:waveRecord==null?1:waveRecord.timestamp},
+            data: {timestamp: waveRecord == null ? 0 : waveRecord.timestamp},
             success: function (data) {
                 waveRecord = data;
             },

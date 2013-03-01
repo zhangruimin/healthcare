@@ -22,4 +22,11 @@ public class TimeStampExtractorTest {
         Date timestamp = TimeStampExtractor.extract(date);
         assertThat(timestamp).isEqualTo(DateUtils.parse("2012-02-13 23:59:58"));
     }
+
+    @Test
+    public void should_convert_date_to_bytes() throws Exception {
+        byte[] expected = {13, 3, 1, 13, 50, 32};
+        byte[] actual = TimeStampExtractor.toBytes(DateUtils.parse("2013-03-01 13:50:32"));
+        assertThat(actual).isEqualTo(expected);
+    }
 }
