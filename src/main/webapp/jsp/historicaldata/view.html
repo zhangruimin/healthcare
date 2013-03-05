@@ -51,15 +51,16 @@
 					function onDataReceived(series) {
 						// Extract the first coordinate pair; jQuery has parsed it, so
 						// the data is now just an ordinary JavaScript object
-						var firstcoordinate = "(" + series.data[0][0] + ", "
-								+ series.data[0][1] + ")";
-						button.siblings("span").text(
-								"Fetched " + series.label + ", first point: "
-										+ firstcoordinate);
+						//var firstcoordinate = "(" + series.data[0][0] + ", "
+						//		+ series.data[0][1] + ")";
+						//button.siblings("span").text(
+						//		"Fetched " + series.label + ", first point: "
+						//				+ firstcoordinate);
 
 						// Push the new data onto our existing data array
 						if (!alreadyFetched[series.label]) {
 							alreadyFetched[series.label] = true;
+							data=[];
 							data.push(series);
 						}
 
@@ -67,7 +68,8 @@
 							$.plot("#placeholder1", data, options);
 						}
 						else if (dataurl == "blood-pressure.json") {
-							$.plot("#placeholder2", data, options);
+							$.plot("#placeholder2", data["datalist"], options);
+//							$.plot("#placeholder2", temp, options);
 						}
 						else if (dataurl == "blood-oxygen.json") {
 							$.plot("#placeholder3", data, options);
