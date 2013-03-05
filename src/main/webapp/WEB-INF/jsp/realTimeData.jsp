@@ -58,8 +58,10 @@
         </div><!--/span-->
         <div class="span9">
             <div class="hero-unit">
-                <ul><li>心电波形</li><li>血氧波形</li></ul>
+                <h2>心电波形</h2>
                 <div id="electrocardiogram" style="width:600px;height:300px;"></div>
+                <h2>血氧波形</h2>
+                <div id="bloodoxygendiogram" style="width:600px;height:300px;"></div>
             </div>
         </div><!--/span-->
     </div><!--/row-->

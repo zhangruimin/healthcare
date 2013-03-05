@@ -43,44 +43,64 @@ function realTimeDataFetcher(totalPoints, waveType){
     }
 }
 
-$(function () {
-    var updateInterval = 10, marginPoints = 10, totalPoints = 250, waveType = "ECG";
+function waveDiagramDrawer(settings) {
+    var defaultSettings = {
+        updateInterval: 10,
+        marginPoints : 10,
+        totalPoints : 250,
+        waveType : "ECG",
+        place:"#electrocardiogram"
+    };
 
-    var options = {
+    var plotOptions = {
         series: { shadowSize: 0 },
         yaxis: { min: 0, max: 300 },
         xaxis: { show: false }
     };
 
+    settings =  $.extend(defaultSettings,settings);
 
-    var fetcher = realTimeDataFetcher(totalPoints, waveType);
-    var currentData = fetcher.getNextPacket();
+    return {
+        draw: function () {
+            var fetcher = realTimeDataFetcher(settings.totalPoints, settings.waveType);
+            var currentData = fetcher.getNextPacket();
+            var plot = $.plot($(settings.place), [ currentData ], plotOptions);
 
-    var plot = $.plot($("#electrocardiogram"), [ currentData ], options);
+            var currentX = 0;
+            var newData = [];
 
-    var currentX = 0;
-    var newData = [];
+            function refreshCurrentData(currentData, newData, currentX) {
+                currentData[currentX] = newData[currentX];
+                for (var j = currentX + 1 ; j < Math.min(currentX + settings.marginPoints, currentData.length); j++) {
+                    currentData[j] = 0;
+                }
+            }
 
-    function refreshCurrentData(currentData, newData, currentX) {
-        currentData[currentX] = newData[currentX];
-        for (var j = currentX + 1 ; j < Math.min(currentX + marginPoints, currentData.length); j++) {
-            currentData[j] = 0;
+            function update() {
+                if(currentX===0){
+                    newData = fetcher.getNextPacket();
+                }
+
+                refreshCurrentData(currentData, newData, currentX);
+                plot.setData([currentData]);
+                plot.draw();
+
+                currentX++;
+                currentX = currentX%settings.totalPoints;
+                setTimeout(update, settings.updateInterval);
+            }
+            update();
         }
     }
+}
 
-    function update() {
-        if(currentX===0){
-            newData = fetcher.getNextPacket();
-        }
-
-        refreshCurrentData(currentData, newData, currentX);
-        plot.setData([currentData]);
-        // since the axes don't change, we don't need to call plot.setupGrid()
-        plot.draw();
-
-        currentX++;
-        currentX = currentX%totalPoints;
-        setTimeout(update, updateInterval);
-    }
-    update();
+$(function () {
+    waveDiagramDrawer().draw();
+    waveDiagramDrawer({
+        updateInterval: 40,
+        marginPoints : 10,
+        totalPoints : 60,
+        waveType : "BO",
+        place:"#bloodoxygendiogram"
+    }).draw();
 });
