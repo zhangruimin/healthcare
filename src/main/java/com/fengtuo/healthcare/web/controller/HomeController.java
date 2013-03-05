@@ -14,13 +14,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping("/home.do")
+@RequestMapping("/home")
 public class HomeController {
-    private static final String HOME = "jsp/home.jsp";
+    private static final String HOME = "/home";
 
     @RequestMapping(method= RequestMethod.GET)
     public String helloWorld(ModelMap model) {
         model.addAttribute("message", "Hello World!");
+        return HOME;
+    }
+
+    @RequestMapping(value = "next", method= RequestMethod.GET)
+    public String next(ModelMap model) {
+        model.addAttribute("message", "next Hello World!");
         return HOME;
     }
 }

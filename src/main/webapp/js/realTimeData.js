@@ -1,4 +1,4 @@
-function realTimeDataFetcher(totalPoints){
+function realTimeDataFetcher(totalPoints, waveType){
     var stubData =[], currentData = [], waveRecord;
     var initValue = 0, isDataReady = false;
     function init(){
@@ -21,9 +21,9 @@ function realTimeDataFetcher(totalPoints){
         }
 
         $.ajax({
-            url: "/healthcare/next.do",
+            url: "/healthcare/realTimeData/next",
             type: 'Get',
-            data: {timestamp: waveRecord == null ? 0 : waveRecord.timestamp},
+            data: {timestamp: waveRecord == null ? 0 : waveRecord.timestamp, waveType: waveType},
             success: function (data) {
                 waveRecord = data;
             },
@@ -44,7 +44,7 @@ function realTimeDataFetcher(totalPoints){
 }
 
 $(function () {
-    var updateInterval = 10, marginPoints = 10, totalPoints = 250;
+    var updateInterval = 10, marginPoints = 10, totalPoints = 250, waveType = "ECG";
 
     var options = {
         series: { shadowSize: 0 },
@@ -53,7 +53,7 @@ $(function () {
     };
 
 
-    var fetcher = realTimeDataFetcher(totalPoints);
+    var fetcher = realTimeDataFetcher(totalPoints, waveType);
     var currentData = fetcher.getNextPacket();
 
     var plot = $.plot($("#electrocardiogram"), [ currentData ], options);

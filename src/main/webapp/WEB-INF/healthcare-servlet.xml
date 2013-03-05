@@ -12,6 +12,16 @@
     <context:component-scan base-package="com.fengtuo.healthcare.web"/>
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/css/**" location="/css/" />
+    <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/js/**" location="/js/" />
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
     <bean class="com.fengtuo.healthcare.repository.MongoDbConfig"/>
 
     <bean id="digitRecordRepository" class="com.fengtuo.healthcare.repository.DigitRecordRepository">

@@ -16,7 +16,7 @@
     <%--<script type="text/javascript" src="js/menu.js"></script>--%>
 </head>
 <body>
-
+    ${message}
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">

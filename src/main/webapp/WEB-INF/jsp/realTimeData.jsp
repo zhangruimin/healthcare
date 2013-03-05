@@ -50,14 +50,15 @@
                 <ul class="nav nav-list">
                     <li class="nav-header">Sidebar</li>
                     <li><a href="/healthcare/realTimeData.do">实时数据</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
+                    <li><a href="#">健康查询</a></li>
+                    <li><a href="#">健康分析</a></li>
                     <li><a href="#">Link</a></li>
                 </ul>
             </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
             <div class="hero-unit">
+                <ul><li>心电波形</li><li>血氧波形</li></ul>
                 <div id="electrocardiogram" style="width:600px;height:300px;"></div>
             </div>
         </div><!--/span-->

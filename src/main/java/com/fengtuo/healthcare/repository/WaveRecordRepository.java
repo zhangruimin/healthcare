@@ -1,6 +1,7 @@
 package com.fengtuo.healthcare.repository;
 
 import com.fengtuo.healthcare.model.WaveRecord;
+import com.fengtuo.healthcare.model.WaveType;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -25,7 +26,10 @@ public class WaveRecordRepository extends RepositoryBase<WaveRecord> {
         this(null);
     }
 
-    public WaveRecord nextRecord(Date date) {
-        return mongoOperations.findOne(new Query(Criteria.where("timestamp").gt(date)),WaveRecord.class,COLLECTION);
+    public WaveRecord nextRecord(Date date, WaveType waveType) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("timestamp").gt(date));
+        query.addCriteria(Criteria.where("waveType").is(waveType));
+        return mongoOperations.findOne(query,WaveRecord.class,COLLECTION);
     }
 }
