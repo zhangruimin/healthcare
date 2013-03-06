@@ -1,11 +1,10 @@
 package com.fengtuo.healthcare.server;
 
 import com.fengtuo.healthcare.repository.PacketRepository;
-import com.fengtuo.healthcare.socket.SocketServerSpringConfig;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -20,8 +19,8 @@ import java.net.InetSocketAddress;
 public class MinaServer {
     public static final int PORT = 5001;
     public static void main(String[] args) throws IOException {
-        ApplicationContext ctx =
-                new AnnotationConfigApplicationContext(SocketServerSpringConfig.class);
+        ApplicationContext ctx =  new ClassPathXmlApplicationContext("socket-server-spring-config.xml");
+
 
         PacketRepository packetRepository =
                 (PacketRepository) ctx.getBean("packetRepository");
