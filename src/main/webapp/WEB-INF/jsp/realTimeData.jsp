@@ -8,14 +8,8 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
-    <title>Main frame</title>
-    <link href="css/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/reset.css" rel="stylesheet" type="text/css">
-    <link href="css/common.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/lib/jquery.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.flot.js"></script>
-    <script type="text/javascript" src="js/lib/excanvas.js"></script>
+    <title>实时数据</title>
+    <%@include file="common/staticRef.jsp" %>
     <script type="text/javascript" src="js/realTimeData.js"></script>
 </head>
 <body>
