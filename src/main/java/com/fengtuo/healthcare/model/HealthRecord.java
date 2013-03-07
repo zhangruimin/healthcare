@@ -1,5 +1,7 @@
 package com.fengtuo.healthcare.model;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 /**

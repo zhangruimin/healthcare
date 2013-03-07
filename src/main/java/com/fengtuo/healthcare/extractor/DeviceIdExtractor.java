@@ -1,5 +1,7 @@
 package com.fengtuo.healthcare.extractor;
 
+import com.fengtuo.healthcare.util.NumUtils;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -12,7 +14,7 @@ public class DeviceIdExtractor {
         int h1 = ((int)deviceIdData[0]) << 24;
         int h2 = ((int)deviceIdData[1]) << 16;
         int h3 = ((int)deviceIdData[2]) << 8;
-        int result = h1 + h2 + h3 + deviceIdData[3];
+        int result = h1 + h2 + h3 + NumUtils.toInt(deviceIdData[3]);
 
         return String.valueOf(result);
     }

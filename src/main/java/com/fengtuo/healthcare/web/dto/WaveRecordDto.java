@@ -1,6 +1,7 @@
 package com.fengtuo.healthcare.web.dto;
 
 import com.fengtuo.healthcare.model.WaveRecord;
+import com.fengtuo.healthcare.util.NumUtils;
 
 import java.util.Date;
 
@@ -41,7 +42,7 @@ public class WaveRecordDto {
     private static int[] toIntArray(byte[] data) {
         int[] result = new int[data.length];
         for (int i = 0; i < data.length; i++) {
-            result[i] = data[i] >= 0 ? data[i] : data[i] + 256;
+            result[i] = NumUtils.toInt(data[i]);
         }
         return result;
     }

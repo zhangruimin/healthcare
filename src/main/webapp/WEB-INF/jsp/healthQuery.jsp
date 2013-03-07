@@ -33,7 +33,7 @@
                         <div id="tabs">
                             <ul>
                                 <li><a href="#tabs-1">体温</a></li>
-                                <li><a href="#tabs-2">血压</a></li>
+                                <li><a href="#tabs-2">心率</a></li>
                                 <li><a href="#tabs-3">血氧</a></li>
                             </ul>
                             <div id="tabs-1">
@@ -50,32 +50,20 @@
                                 <table id="table1" width="700" border="1" cellpadding="0"
                                        cellspacing="0">
                                     <tr>
-                                        <td width="20%">硬件编号</td>
-                                        <td width="40%">监测时间</td>
-                                        <td width="40%">数值</td>
+                                        <th width="20%">硬件编号</th>
+                                        <th width="40%">监测时间</th>
+                                        <th width="40%">数值</th>
                                     </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>2012-12-26 09:00</td>
-                                        <td>37</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>2012-12-26 09:05</td>
-                                        <td>37</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>2012-12-26 09:10</td>
-                                        <td>37</td>
-                                    </tr>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>2012-12-26 09:15</td>
-                                        <td>37</td>
-                                    </tr>
+                                    <c:forEach var="record" items="${temperatureRecords}">
+                                        <tr>
+                                            <td>${record.deviceId}</td>
+                                            <td>${record.timestamp}</td>
+                                            <td>${record.data}</td>
+                                        </tr>
+                                    </c:forEach>
                                 </table>
                             </div>
+
                             <div id="tabs-2">
 
                                 <div class="demo-container">
@@ -92,28 +80,15 @@
                                     <tr>
                                         <td width="20%">硬件编号</td>
                                         <td width="40%">监测时间</td>
-                                        <td width="40%">高/均/低</td>
+                                        <td width="40%">数值</td>
                                     </tr>
-                                    <tr>
-                                        <td>002</td>
-                                        <td>2012-12-26 09:00</td>
-                                        <td>120/96/78</td>
-                                    </tr>
-                                    <tr>
-                                        <td>002</td>
-                                        <td>2012-12-26 09:05</td>
-                                        <td>120/96/78</td>
-                                    </tr>
-                                    <tr>
-                                        <td>002</td>
-                                        <td>2012-12-26 09:10</td>
-                                        <td>120/96/78</td>
-                                    </tr>
-                                    <tr>
-                                        <td>002</td>
-                                        <td>2012-12-26 09:15</td>
-                                        <td>120/96/78</td>
-                                    </tr>
+                                    <c:forEach var="record" items="${HRRecords}">
+                                        <tr>
+                                            <td>${record.deviceId}</td>
+                                            <td>${record.timestamp}</td>
+                                            <td>${record.data}</td>
+                                        </tr>
+                                    </c:forEach>
                                 </table>
                             </div>
                             <div id="tabs-3">
@@ -134,62 +109,16 @@
                                         <td width="40%">监测时间</td>
                                         <td width="40%">数值</td>
                                     </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:00</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:05</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:10</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:15</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:00</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:05</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:10</td>
-                                        <td>98</td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>2012-12-26 09:15</td>
-                                        <td>98</td>
-                                    </tr>
+                                    <c:forEach var="record" items="${SPO2Records}">
+                                        <tr>
+                                            <td>${record.deviceId}</td>
+                                            <td>${record.timestamp}</td>
+                                            <td>${record.data}</td>
+                                        </tr>
+                                    </c:forEach>
                                 </table>
                             </div>
                         </div>
-
-                        <!--			<p>
-                            <button class="fetchSeries">Second dataset</button>
-                            [ <a href="blood-pressure.json">see data</a> ] <span></span>
-                            </p>
-
-                            <p>
-                            <button class="fetchSeries">Third dataset</button>
-                            [ <a href="body-temperature.json">see data</a> ] <span></span>
-                            </p> -->
-                        <p>
-                            <button class="dataUpdate">Poll for data</button>
-                        </p>
 
                     </div>
             </div>

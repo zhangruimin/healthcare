@@ -29,7 +29,8 @@ public class HealthRecordExtractor {
             digitRecord.setDeviceStatus(deviceStatus);
             digitRecord.setDeviceId(deviceId);
             digitRecord.setDataType(type);
-            digitRecord.setData(CollectionUtils.get(data, digitDataTypeExtractor.getStartIndex(type), DataType.getDataByteNumber(type)));
+            byte[] digitData = CollectionUtils.get(data, digitDataTypeExtractor.getStartIndex(type), DataType.getDataByteNumber(type));
+            digitRecord.setData(digitData);
             digitRecord.setTimestamp(timestamp);
             packet.addRecord(digitRecord);
         }
