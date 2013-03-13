@@ -47,7 +47,7 @@ public class DigitRecordDto {
         DigitRecordDto digitRecordDto = new DigitRecordDto();
         if (DataType.TEMP1.equals(digitRecord.getDataType())) {
             digitRecordDto.setData(NumUtils.toInt(digitRecord.getData()[0]) + "." + NumUtils.toInt(digitRecord.getData()[1]));
-        }   else{
+        } else {
             digitRecordDto.setData(String.valueOf(NumUtils.toInt(digitRecord.getData()[0])));
         }
         digitRecordDto.setDeviceId(digitRecord.getDeviceId());
