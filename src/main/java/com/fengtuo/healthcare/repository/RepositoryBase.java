@@ -1,6 +1,5 @@
 package com.fengtuo.healthcare.repository;
 
-import com.fengtuo.healthcare.model.DigitRecord;
 import org.springframework.data.mongodb.core.MongoOperations;
 
 import java.util.List;
@@ -32,12 +31,16 @@ public class RepositoryBase<T> {
         this.type = type;
     }
 
-    public void save(T healthRecord) {
-        mongoOperations.save(healthRecord, collectionName);
+    public void save(T record) {
+        mongoOperations.save(record, collectionName);
     }
 
     public List<T> findAll() {
         return mongoOperations.findAll(type, collectionName);
+    }
+
+    public T findById(String id) {
+        return mongoOperations.findById(id, type, collectionName);
     }
 
     public void removeAll(){

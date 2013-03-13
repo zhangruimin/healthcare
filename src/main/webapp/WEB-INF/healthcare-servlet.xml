@@ -32,7 +32,12 @@
     <bean id="digitRecordRepository" class="com.fengtuo.healthcare.repository.DigitRecordRepository">
         <property name="mongoOperations" ref="mongoTemplate"/>
     </bean>
+
     <bean id="waveRecordRepository" class="com.fengtuo.healthcare.repository.WaveRecordRepository">
+        <property name="mongoOperations" ref="mongoTemplate"/>
+    </bean>
+
+    <bean id="userRepository" class="com.fengtuo.healthcare.repository.UserRepository">
         <property name="mongoOperations" ref="mongoTemplate"/>
     </bean>
 
