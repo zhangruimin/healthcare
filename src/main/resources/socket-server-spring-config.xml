@@ -20,10 +20,16 @@
         <property name="mongoOperations" ref="mongoTemplate"/>
     </bean>
 
+    <bean id="userRepository" class="com.fengtuo.healthcare.repository.UserRepository">
+        <property name="mongoOperations" ref="mongoTemplate"/>
+    </bean>
+
     <bean id="packetRepository" class="com.fengtuo.healthcare.repository.PacketRepository">
         <property name="digitRecordRepository" ref="digitRecordRepository"/>
         <property name="waveRecordRepository" ref="waveRecordRepository"/>
+        <property name="userRepository" ref="userRepository"/>
     </bean>
+
     <bean id="packetService" class="com.fengtuo.healthcare.service.PacketService">
         <property name="packetRepository" ref="packetRepository"/>
     </bean>

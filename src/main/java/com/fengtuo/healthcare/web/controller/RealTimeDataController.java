@@ -46,7 +46,8 @@ public class RealTimeDataController {
     @ResponseBody
     WaveRecordDto next(@RequestParam long timestamp,@RequestParam WaveType waveType) {
         Date date = getDate(timestamp);
-        WaveRecord waveRecord = waveRecordRepository.nextRecord(date, waveType);
+        String userId = "1";
+        WaveRecord waveRecord = waveRecordRepository.nextRecord(userId, date, waveType);
         if(waveRecord == null){
             waveRecord = new WaveRecord();
             waveRecord.setTimestamp(date);

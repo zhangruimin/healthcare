@@ -17,6 +17,7 @@ public class HealthRecord {
     private DeviceStatus deviceStatus;
     private Date timestamp;
     private byte[] data;
+    private String userId;
 
     public HealthRecord(){
     }
@@ -63,5 +64,13 @@ public class HealthRecord {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 }

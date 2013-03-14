@@ -44,5 +44,6 @@
     <bean id="packetRepository" class="com.fengtuo.healthcare.repository.PacketRepository">
         <property name="digitRecordRepository" ref="digitRecordRepository"/>
         <property name="waveRecordRepository" ref="waveRecordRepository"/>
+        <property name="userRepository" ref="userRepository"/>
     </bean>
 </beans>

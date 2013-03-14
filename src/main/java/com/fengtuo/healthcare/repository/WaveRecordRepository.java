@@ -27,10 +27,11 @@ public class WaveRecordRepository extends RepositoryBase<WaveRecord> {
         this(null);
     }
 
-    public WaveRecord nextRecord(Date date, WaveType waveType) {
+    public WaveRecord nextRecord(String userId, Date date, WaveType waveType) {
         Query query = new Query();
         query.addCriteria(Criteria.where("timestamp").gt(date));
         query.addCriteria(Criteria.where("waveType").is(waveType));
+        query.addCriteria(Criteria.where("userId").is(userId));
         query.with(new Sort(Sort.Direction.ASC, "timestamp"));
         return mongoOperations.findOne(query,WaveRecord.class,COLLECTION);
     }

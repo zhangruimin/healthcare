@@ -32,10 +32,10 @@ public class HealthQueryController {
     }
     @RequestMapping(method= RequestMethod.GET)
     public String index(ModelMap model) {
-
-        List<DigitRecord> temperatureRecords = digitRecordRepository.find(DataType.TEMP1);
-        List<DigitRecord> HRRecords = digitRecordRepository.find(DataType.HR);
-        List<DigitRecord> SPO2Records = digitRecordRepository.find(DataType.SPO2);
+        String userId = "1";
+        List<DigitRecord> temperatureRecords = digitRecordRepository.find(userId, DataType.TEMP1);
+        List<DigitRecord> HRRecords = digitRecordRepository.find(userId, DataType.HR);
+        List<DigitRecord> SPO2Records = digitRecordRepository.find(userId, DataType.SPO2);
         model.addAttribute("temperatureRecords", convert(temperatureRecords));
         model.addAttribute("HRRecords", convert(HRRecords));
         model.addAttribute("SPO2Records", convert(SPO2Records));

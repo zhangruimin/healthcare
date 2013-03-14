@@ -26,7 +26,9 @@ public class DigitRecordRepository extends RepositoryBase<DigitRecord> {
         this(null);
     }
 
-    public List<DigitRecord> find(DataType dataType) {
-        return mongoOperations.find(new Query(Criteria.where("dataType").is(dataType)), DigitRecord.class, COLLECTION);
+    public List<DigitRecord> find(String userId, DataType dataType) {
+        Query query = new Query(Criteria.where("dataType").is(dataType));
+        query.addCriteria(Criteria.where("userId").is(userId));
+        return mongoOperations.find(query, DigitRecord.class, COLLECTION);
     }
 }

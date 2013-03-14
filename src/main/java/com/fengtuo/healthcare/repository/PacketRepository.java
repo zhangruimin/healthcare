@@ -10,35 +10,38 @@ import com.fengtuo.healthcare.model.Packet;
  * To change this template use File | Settings | File Templates.
  */
 public class PacketRepository {
+
+    private WaveRecordRepository waveRecordRepository;
+
+    private UserRepository userRepository;
+
     private DigitRecordRepository digitRecordRepository;
 
-    public WaveRecordRepository getWaveRecordRepository() {
-        return waveRecordRepository;
+    public PacketRepository() {
+    }
+
+    public PacketRepository(DigitRecordRepository digitRecordRepository,
+                            WaveRecordRepository waveRecordRepository,
+                            UserRepository userRepository) {
+        this.digitRecordRepository = digitRecordRepository;
+        this.waveRecordRepository = waveRecordRepository;
+        this.userRepository = userRepository;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public void setWaveRecordRepository(WaveRecordRepository waveRecordRepository) {
         this.waveRecordRepository = waveRecordRepository;
     }
 
-    public DigitRecordRepository getDigitRecordRepository() {
-        return digitRecordRepository;
-    }
-
     public void setDigitRecordRepository(DigitRecordRepository digitRecordRepository) {
         this.digitRecordRepository = digitRecordRepository;
     }
 
-    private WaveRecordRepository waveRecordRepository;
-
-    public PacketRepository(DigitRecordRepository digitRecordRepository, WaveRecordRepository waveRecordRepository) {
-        this.digitRecordRepository = digitRecordRepository;
-        this.waveRecordRepository = waveRecordRepository;
-    }
-
-    public PacketRepository() {
-    }
-
     public void save(Packet packet){
+        packet.initRecordUser(userRepository.findUser(packet.getDeviceId()));
         digitRecordRepository.insert(packet.getDigitRecords());
         waveRecordRepository.insert(packet.getWaveRecords());
     }

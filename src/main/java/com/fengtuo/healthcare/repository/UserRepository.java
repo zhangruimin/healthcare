@@ -2,6 +2,12 @@ package com.fengtuo.healthcare.repository;
 
 import com.fengtuo.healthcare.model.User;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,12 +17,25 @@ import org.springframework.data.mongodb.core.MongoOperations;
  * To change this template use File | Settings | File Templates.
  */
 public class UserRepository extends RepositoryBase<User> {
+    private static Map<String, String> cache = new ConcurrentHashMap<String, String>();
     private static final String COLLECTION = "Users";
+
     public UserRepository(MongoOperations mongoOperations) {
         super(mongoOperations, COLLECTION, User.class);
     }
 
     public UserRepository() {
         this(null);
+    }
+
+    public String findUser(String deviceId) {
+        if (cache.containsKey(deviceId)) {
+            return cache.get(deviceId);
+        }
+        Query query = new Query();
+        query.addCriteria(Criteria.where("devices").elemMatch(Criteria.where("deviceId").is(deviceId)));
+        User user = mongoOperations.findOne(query, User.class, COLLECTION);
+        cache.put(deviceId, user.getId());
+        return user.getId();
     }
 }

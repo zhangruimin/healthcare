@@ -13,13 +13,17 @@ import java.util.List;
 public class Packet {
     private List<DigitRecord> digitRecords = new ArrayList<DigitRecord>();
     private List<WaveRecord> waveRecords = new ArrayList<WaveRecord>();
+    private String deviceId;
 
     public Packet() {
     }
 
-    public Packet(List<DigitRecord> digitRecords, List<WaveRecord> waveRecords) {
-        this.digitRecords = digitRecords;
-        this.waveRecords = waveRecords;
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
     public List<DigitRecord> getDigitRecords() {
@@ -44,5 +48,15 @@ public class Packet {
 
     public void addRecord(WaveRecord waveRecord) {
         waveRecords.add(waveRecord);
+    }
+
+    public void initRecordUser(String userId) {
+        for(DigitRecord digitRecord:digitRecords){
+            digitRecord.setUserId(userId);
+        }
+
+        for(WaveRecord waveRecord:waveRecords){
+            waveRecord.setUserId(userId);
+        }
     }
 }

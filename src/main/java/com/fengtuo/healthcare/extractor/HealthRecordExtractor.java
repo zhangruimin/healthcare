@@ -23,6 +23,7 @@ public class HealthRecordExtractor {
         byte[] digitDataTypeBytes = CollectionUtils.get(data, 19, 2);
         DigitDataTypesExtractor digitDataTypeExtractor = new DigitDataTypesExtractor(digitDataTypeBytes);
         DataType[] digitDataTypes = digitDataTypeExtractor.getDataTypes();
+        packet.setDeviceId(deviceId);
         for (DataType type : digitDataTypes) {
             DigitRecord digitRecord = new DigitRecord();
             digitRecord.setDeviceType(deviceType);
