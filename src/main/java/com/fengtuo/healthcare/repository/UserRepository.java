@@ -38,4 +38,11 @@ public class UserRepository extends RepositoryBase<User> {
         cache.put(deviceId, user.getId());
         return user.getId();
     }
+
+    public User findUser(String userName, String password) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("userName").is(userName));
+        query.addCriteria(Criteria.where("password").is(password));
+        return mongoOperations.findOne(query, User.class, COLLECTION);
+    }
 }

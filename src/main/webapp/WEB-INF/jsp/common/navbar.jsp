@@ -11,6 +11,7 @@
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
                     当前用户： <a href="#" class="navbar-link">周明其</a>
+                    <a href="/healthcare/logout" class="navbar-link">退出</a>
                 </p>
                 <ul class="nav">
                     <li class="active"><a href="#">首页</a></li>

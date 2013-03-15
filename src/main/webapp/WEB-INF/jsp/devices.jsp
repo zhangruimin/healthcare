@@ -5,7 +5,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false" %>
 
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>设备管理</title>

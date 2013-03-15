@@ -23,6 +23,30 @@
     <mvc:resources mapping="/images/**" location="/images/" />
     <mvc:resources mapping="/js/**" location="/js/" />
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*" />
+            <bean class="com.fengtuo.healthcare.web.inteceptor.SecurityInterceptor">
+                <property name="excludedUrls">
+                    <list>
+                        <value>/login</value>
+                        <value>/</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id="handlerExceptionResolver"
+          class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.fengtuo.healthcare.web.inteceptor.AuthorizationException">redirect:/login</prop>
+            </props>
+        </property>
+    </bean>
+
+
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
