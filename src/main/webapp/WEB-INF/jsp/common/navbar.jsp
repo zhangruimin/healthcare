@@ -1,4 +1,5 @@
 <%@ page language="java" session="true" contentType="text/html;charset=UTF-8"%>
+<c:set var="currentUser" value='<%=request.getSession().getAttribute("currentUser")%>'/>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -10,7 +11,7 @@
             <a class="brand" href="#">康健中心</a>
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
-                    当前用户： <a href="#" class="navbar-link">周明其</a>
+                    当前用户： <a href="#" class="navbar-link">${currentUser.userName}</a>
                     <a href="/healthcare/logout" class="navbar-link">退出</a>
                 </p>
                 <ul class="nav">

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -27,7 +28,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/realTimeData")
-public class RealTimeDataController {
+public class RealTimeDataController extends BaseController {
     private static final String REAL_TIME_DATA = "realTimeData";
     private final WaveRecordRepository waveRecordRepository;
 
@@ -44,9 +45,9 @@ public class RealTimeDataController {
     @RequestMapping(value = "next", method= RequestMethod.GET)
     public
     @ResponseBody
-    WaveRecordDto next(@RequestParam long timestamp,@RequestParam WaveType waveType) {
+    WaveRecordDto next(@RequestParam long timestamp,@RequestParam WaveType waveType, HttpSession session) {
         Date date = getDate(timestamp);
-        String userId = "1";
+        String userId = getCurrentUser(session).getId();
         WaveRecord waveRecord = waveRecordRepository.nextRecord(userId, date, waveType);
         if(waveRecord == null){
             waveRecord = new WaveRecord();

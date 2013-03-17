@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/healthQuery")
-public class HealthQueryController {
+public class HealthQueryController extends BaseController{
     private static final String HEALTH_QUERY = "healthQuery";
     private DigitRecordRepository digitRecordRepository;
 
@@ -31,8 +32,8 @@ public class HealthQueryController {
         this.digitRecordRepository = digitRecordRepository;
     }
     @RequestMapping(method= RequestMethod.GET)
-    public String index(ModelMap model) {
-        String userId = "1";
+    public String index(ModelMap model, HttpSession session) {
+        String userId =getCurrentUser(session).getId();
         List<DigitRecord> temperatureRecords = digitRecordRepository.find(userId, DataType.TEMP1);
         List<DigitRecord> HRRecords = digitRecordRepository.find(userId, DataType.HR);
         List<DigitRecord> SPO2Records = digitRecordRepository.find(userId, DataType.SPO2);
