@@ -1,6 +1,5 @@
 body {
-    padding-top: 60px;
-    padding-bottom: 40px;
+    background-color: #dddddd;
 }
 .sidebar-nav {
     padding: 9px 0;
@@ -13,4 +12,22 @@ body {
         padding-left: 5px;
         padding-right: 5px;
     }
+}
+
+.container-outer{
+    width:1000px;
+    margin:0 auto;
+    min-height:100%;
+    background-color: #FFFFFF;
+    position:relative;
+}
+
+#footer {
+    background: none repeat scroll 0 0 #F5F4F0;
+    border-top: 1px dotted #DDDDDD;
+    bottom: 0;
+    height: 60px;
+    margin: 4px 4px 0 4px;
+    position: absolute;
+    width: 992px;
 }

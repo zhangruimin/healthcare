@@ -11,18 +11,21 @@
     <%@include file="common/staticRef.jsp" %>
 </head>
 <body>
-<div class="container-fluid">
-    <form method="post" action="/healthcare/login">
-        <dl>
-        <dt>用户名：</dt><dd><input type="text" name="userName"></dd>
-        <dt>密码：</dt><dd><input type="password" name="password"></dd>
-        <input type="submit">
-        </dl>
-    </form>
-
+<div class="container-outer">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    </div>
+    <div class="container-fluid">
+        <form method="post" action="/healthcare/login">
+            <dl>
+                <dt>用户名：</dt>
+                <dd><input type="text" name="userName"></dd>
+                <dt>密码：</dt>
+                <dd><input type="password" name="password"></dd>
+                <input type="submit" value="登录">
+            </dl>
+        </form>
+    </div>
     <%@include file="common/foot.jsp" %>
-
 </div>
-
 </body>
 </html>

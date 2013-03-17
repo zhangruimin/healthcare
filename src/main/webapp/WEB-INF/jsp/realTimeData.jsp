@@ -12,23 +12,24 @@
     <script type="text/javascript" src="js/realTimeData.js"></script>
 </head>
 <body>
-<%@include file="common/navbar.jsp" %>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <%@include file="common/sidebar.jsp" %>
-        <div class="span9">
-            <div class="hero-unit">
-                <h2>心电波形</h2>
-                <div id="electrocardiogram" style="width:600px;height:300px;"></div>
-                <h2>血氧波形</h2>
-                <div id="bloodoxygendiogram" style="width:600px;height:300px;"></div>
-            </div>
-        </div><!--/span-->
-    </div><!--/row-->
+<div class="container-outer">
+    <%@include file="common/navbar.jsp" %>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <%@include file="common/sidebar.jsp" %>
+            <div class="span9">
+                <div class="hero-unit">
+                    <h2>心电波形</h2>
+                    <div id="electrocardiogram" style="width:600px;height:300px;"></div>
+                    <h2>血氧波形</h2>
+                    <div id="bloodoxygendiogram" style="width:600px;height:300px;"></div>
+                </div>
+            </div><!--/span-->
+        </div><!--/row-->
 
-    <hr>
+        <hr>
+    </div>
     <%@include file="common/foot.jsp" %>
 </div>
-
 </body>
 </html>

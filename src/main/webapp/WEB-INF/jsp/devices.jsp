@@ -11,49 +11,50 @@
     <%@include file="common/staticRef.jsp" %>
 </head>
 <body>
-<%@include file="common/navbar.jsp" %>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <%@include file="common/sidebar.jsp" %>
+<div class="container-outer">
+    <%@include file="common/navbar.jsp" %>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <%@include file="common/sidebar.jsp" %>
 
-        <div class="span9">
-            <div class="hero-unit">
-                <div id="header">
-                    <h2>设备管理</h2>
-                </div>
+            <div class="span9">
+                <div class="hero-unit">
+                    <div id="header">
+                        <h2>设备管理</h2>
+                    </div>
 
-                <div id="content">
+                    <div id="content">
 
-                    <table id="table1" width="700" border="1" cellpadding="0"
-                           cellspacing="0">
-                        <tr>
-                            <th width="50%">设备类型</th>
-                            <th width="50%">设备编号</th>
-                        </tr>
-                        <c:forEach var="device" items="${devices}">
+                        <table id="table1" width="700" border="1" cellpadding="0"
+                               cellspacing="0">
                             <tr>
-                                <td>${device.deviceId}</td>
-                                <td>${device.deviceType}</td>
+                                <th width="50%">设备类型</th>
+                                <th width="50%">设备编号</th>
                             </tr>
-                        </c:forEach>
-                    </table>
-                    <h2>添加设备</h2>
-                    <form method="post" action="/healthcare/users/devices">
-                        <input type="text" name="deviceId">
-                        <select name="deviceType">
-                            <option value="Monitor">监控仪</option>
-                        </select>
-                        <input type="submit">
-                    </form>
+                            <c:forEach var="device" items="${devices}">
+                                <tr>
+                                    <td>${device.deviceId}</td>
+                                    <td>${device.deviceType}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                        <h2>添加设备</h2>
+
+                        <form method="post" action="/healthcare/users/devices">
+                            <input type="text" name="deviceId">
+                            <select name="deviceType">
+                                <option value="Monitor">监控仪</option>
+                            </select>
+                            <input type="submit">
+                        </form>
+                    </div>
                 </div>
             </div>
+
+            <hr>
         </div>
-
-        <hr>
-
-        <%@include file="common/foot.jsp" %>
-
     </div>
-
+    <%@include file="common/foot.jsp" %>
+</div>
 </body>
 </html>
