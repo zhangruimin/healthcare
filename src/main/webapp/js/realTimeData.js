@@ -94,6 +94,42 @@ function waveDiagramDrawer(settings) {
     }
 }
 
+function digitDataDrawer(settings) {
+    var defaultSettings = {
+        updateInterval: 5000
+    };
+    settings =  $.extend(defaultSettings,settings);
+
+    return {
+        draw: function () {
+            function update() {
+                $.ajax({
+                        url: "/healthcare/realTimeData/nextDigitData",
+                        type: 'Get',
+                        success: function (data) {
+                            if(data["temperature"]) {
+                                $("#temperature").text(data["temperature"]);
+                            }
+                            if(data["heartRate"]) {
+                                $("#heartRate").text(data["heartRate"]);
+                            }
+                            if(data["bloodOxygen"]) {
+                                $("#bloodOxygen").text(data["bloodOxygen"]);
+                            }
+                        },
+                        timeout: 30000,
+                        error: function () {
+                            alert("Failed to get data");
+                        }
+                    }
+                );
+                setTimeout(update, settings.updateInterval);
+            }
+            update();
+        }
+    }
+}
+
 $(function () {
     waveDiagramDrawer().draw();
     waveDiagramDrawer({
@@ -103,4 +139,5 @@ $(function () {
         waveType : "BO",
         place:"#bloodoxygendiogram"
     }).draw();
+    digitDataDrawer().draw();
 });

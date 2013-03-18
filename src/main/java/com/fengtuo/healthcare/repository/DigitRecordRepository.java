@@ -2,6 +2,7 @@ package com.fengtuo.healthcare.repository;
 
 import com.fengtuo.healthcare.model.DataType;
 import com.fengtuo.healthcare.model.DigitRecord;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -32,5 +33,13 @@ public class DigitRecordRepository extends RepositoryBase<DigitRecord> {
         query.addCriteria(Criteria.where("userId").is(userId));
         query.addCriteria(Criteria.where("timestamp").gte(startTime));
         return mongoOperations.find(query, DigitRecord.class, COLLECTION);
+    }
+
+    public DigitRecord findLastRecordAfter(String userId, DataType dataType, Date startTime) {
+        Query query = new Query(Criteria.where("dataType").is(dataType));
+        query.addCriteria(Criteria.where("userId").is(userId));
+        query.addCriteria(Criteria.where("timestamp").gte(startTime));
+        query.with(new Sort(Sort.Direction.DESC, "timestamp"));
+        return mongoOperations.findOne(query, DigitRecord.class, COLLECTION);
     }
 }

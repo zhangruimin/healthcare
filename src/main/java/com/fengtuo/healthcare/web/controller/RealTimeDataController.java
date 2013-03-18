@@ -1,8 +1,12 @@
 package com.fengtuo.healthcare.web.controller;
 
+import com.fengtuo.healthcare.model.DataType;
+import com.fengtuo.healthcare.model.DigitRecord;
 import com.fengtuo.healthcare.model.WaveRecord;
 import com.fengtuo.healthcare.model.WaveType;
+import com.fengtuo.healthcare.repository.DigitRecordRepository;
 import com.fengtuo.healthcare.repository.WaveRecordRepository;
+import com.fengtuo.healthcare.web.dto.RealDigitDataDto;
 import com.fengtuo.healthcare.web.dto.WaveRecordDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,10 +35,12 @@ import java.util.Map;
 public class RealTimeDataController extends BaseController {
     private static final String REAL_TIME_DATA = "realTimeData";
     private final WaveRecordRepository waveRecordRepository;
+    private final DigitRecordRepository digitRecordRepository;
 
     @Autowired
-    public RealTimeDataController(WaveRecordRepository waveRecordRepository) {
+    public RealTimeDataController(WaveRecordRepository waveRecordRepository, DigitRecordRepository digitRecordRepository) {
         this.waveRecordRepository = waveRecordRepository;
+        this.digitRecordRepository = digitRecordRepository;
     }
 
     @RequestMapping(method= RequestMethod.GET)
@@ -55,6 +61,30 @@ public class RealTimeDataController extends BaseController {
             waveRecord.setData(new byte[WaveType.getDataByteNumber(waveType)]);
         }
         return WaveRecordDto.from(waveRecord);
+    }
+
+    @RequestMapping(value = "nextDigitData", method= RequestMethod.GET)
+    public
+    @ResponseBody
+    RealDigitDataDto nextDigitData(HttpSession session) {
+        String userId = getCurrentUser(session).getId();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE, -10);
+        Date time = calendar.getTime();
+        DigitRecord lastTemperature = digitRecordRepository.findLastRecordAfter(userId, DataType.TEMP1, time);
+        DigitRecord lastHeartRate = digitRecordRepository.findLastRecordAfter(userId, DataType.HR, time);
+        DigitRecord lastBloodOxygen = digitRecordRepository.findLastRecordAfter(userId, DataType.SPO2, time);
+        RealDigitDataDto realDigitDataDto = new RealDigitDataDto();
+        if(lastTemperature!=null){
+            realDigitDataDto.setTemperature(lastTemperature.getDataString());
+        }
+        if(lastHeartRate!=null){
+            realDigitDataDto.setHeartRate(lastHeartRate.getDataString());
+        }
+        if(lastBloodOxygen!=null){
+            realDigitDataDto.setBloodOxygen(lastBloodOxygen.getDataString());
+        }
+        return realDigitDataDto;
     }
 
     private Date getDate(long timestamp) {

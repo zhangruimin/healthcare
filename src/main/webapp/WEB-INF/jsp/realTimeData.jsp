@@ -23,6 +23,13 @@
                     <div id="electrocardiogram" style="width:600px;height:300px;"></div>
                     <h2>血氧波形</h2>
                     <div id="bloodoxygendiogram" style="width:600px;height:300px;"></div>
+                    <h2>体温</h2>
+                    <div id="temperature">无数据</div>
+                    <h2>心率</h2>
+                    <div id="heartRate">无数据</div>
+                    <h2>血氧</h2>
+                    <div id="bloodOxygen">无数据</div>
+
                 </div>
             </div><!--/span-->
         </div><!--/row-->

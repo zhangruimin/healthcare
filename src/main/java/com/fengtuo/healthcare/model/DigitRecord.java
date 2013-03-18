@@ -1,5 +1,7 @@
 package com.fengtuo.healthcare.model;
 
+import com.fengtuo.healthcare.util.NumUtils;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -23,5 +25,13 @@ public class DigitRecord extends HealthRecord {
 
     public void setDataType(DataType dataType) {
         this.dataType = dataType;
+    }
+
+    public String getDataString() {
+        if (DataType.TEMP1.equals(getDataType())) {
+            return NumUtils.toInt(getData()[0]) + "." + NumUtils.toInt(getData()[1]);
+        } else {
+            return String.valueOf(NumUtils.toInt(getData()[0]));
+        }
     }
 }
