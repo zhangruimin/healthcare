@@ -15,8 +15,6 @@
                     <a href="/healthcare/logout" class="navbar-link">退出</a>
                 </p>
                 <ul class="nav">
-                    <li class="active"><a href="#">首页</a></li>
-                    <li><a href="#about">关于</a></li>
                     <li><a href="/healthcare/users/devices?userId=1">设备管理</a></li>
                 </ul>
             </div>

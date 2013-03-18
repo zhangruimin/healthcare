@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <title>用户登录</title>
+    <title>注册</title>
     <%@include file="common/staticRef.jsp" %>
 </head>
 <body>
@@ -15,14 +15,15 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
     </div>
     <div class="container-fluid">
-        <form method="post" action="/healthcare/login">
+        <form method="post" action="/healthcare/register">
             <dl>
                 <dt>用户名：</dt>
                 <dd><input type="text" name="userName"></dd>
                 <dt>密码：</dt>
                 <dd><input type="password" name="password"></dd>
-                <input type="submit" value="登录">
-                <a href="/healthcare/register">注册</a>
+                <dt>确认密码：</dt>
+                <dd><input type="password" name="passwordConfirm"></dd>
+                <input type="submit" value="立即注册">
             </dl>
         </form>
     </div>

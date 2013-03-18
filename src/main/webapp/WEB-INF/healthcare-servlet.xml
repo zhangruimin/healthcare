@@ -31,6 +31,7 @@
                     <list>
                         <value>/login</value>
                         <value>/</value>
+                        <value>/register</value>
                     </list>
                 </property>
             </bean>
