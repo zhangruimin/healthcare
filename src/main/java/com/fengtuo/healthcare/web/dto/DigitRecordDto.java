@@ -3,6 +3,7 @@ package com.fengtuo.healthcare.web.dto;
 import com.fengtuo.healthcare.model.DataType;
 import com.fengtuo.healthcare.model.DigitRecord;
 import com.fengtuo.healthcare.model.WaveRecord;
+import com.fengtuo.healthcare.util.DateUtils;
 import com.fengtuo.healthcare.util.NumUtils;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ import java.util.Date;
 public class DigitRecordDto {
     private String data = "Not Set";
     private String deviceId;
-    private Date timestamp;
+    private String timestamp;
 
     public String getDeviceId() {
         return deviceId;
@@ -27,11 +28,11 @@ public class DigitRecordDto {
         this.deviceId = deviceId;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -51,7 +52,7 @@ public class DigitRecordDto {
             digitRecordDto.setData(String.valueOf(NumUtils.toInt(digitRecord.getData()[0])));
         }
         digitRecordDto.setDeviceId(digitRecord.getDeviceId());
-        digitRecordDto.setTimestamp(digitRecord.getTimestamp());
+        digitRecordDto.setTimestamp(DateUtils.format(digitRecord.getTimestamp()));
         return digitRecordDto;
     }
 }

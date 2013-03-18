@@ -12,11 +12,17 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class DateUtils {
+   private static final String PATTERN = "yyyy-MM-dd hh:mm:ss";
+
     public static Date parse(String dateString){
         try {
-            return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(dateString);
+            return new SimpleDateFormat(PATTERN).parse(dateString);
         } catch (ParseException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    public static String format(Date date){
+        return new SimpleDateFormat(PATTERN).format(date);
     }
 }

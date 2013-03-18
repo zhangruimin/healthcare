@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,9 +27,10 @@ public class DigitRecordRepository extends RepositoryBase<DigitRecord> {
         this(null);
     }
 
-    public List<DigitRecord> find(String userId, DataType dataType) {
+    public List<DigitRecord> find(String userId, DataType dataType, Date startTime) {
         Query query = new Query(Criteria.where("dataType").is(dataType));
         query.addCriteria(Criteria.where("userId").is(userId));
+        query.addCriteria(Criteria.where("timestamp").gte(startTime));
         return mongoOperations.find(query, DigitRecord.class, COLLECTION);
     }
 }

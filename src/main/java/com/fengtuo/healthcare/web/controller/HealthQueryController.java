@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,15 +34,38 @@ public class HealthQueryController extends BaseController{
         this.digitRecordRepository = digitRecordRepository;
     }
     @RequestMapping(method= RequestMethod.GET)
-    public String index(ModelMap model, HttpSession session) {
+    public String index(ModelMap model, HttpSession session, String timeRange) {
+        Date startTime = getStartTime(timeRange);
         String userId =getCurrentUser(session).getId();
-        List<DigitRecord> temperatureRecords = digitRecordRepository.find(userId, DataType.TEMP1);
-        List<DigitRecord> HRRecords = digitRecordRepository.find(userId, DataType.HR);
-        List<DigitRecord> SPO2Records = digitRecordRepository.find(userId, DataType.SPO2);
+        List<DigitRecord> temperatureRecords = digitRecordRepository.find(userId, DataType.TEMP1, startTime);
+        List<DigitRecord> HRRecords = digitRecordRepository.find(userId, DataType.HR, startTime);
+        List<DigitRecord> SPO2Records = digitRecordRepository.find(userId, DataType.SPO2, startTime);
         model.addAttribute("temperatureRecords", convert(temperatureRecords));
         model.addAttribute("HRRecords", convert(HRRecords));
         model.addAttribute("SPO2Records", convert(SPO2Records));
         return HEALTH_QUERY;
+    }
+
+    private Date getStartTime(String timeRange) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        if("LAST_DAY".equals(timeRange)){
+            return calendar.getTime();
+        }
+        if("LAST_WEEK".equals(timeRange)){
+            calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+            return calendar.getTime();
+        }
+
+        if("LAST_MONTH".equals(timeRange)){
+            calendar.set(Calendar.DAY_OF_MONTH, 1);
+            return calendar.getTime();
+        }
+
+        return calendar.getTime();
     }
 
     private List<DigitRecordDto> convert(List<DigitRecord> records){
@@ -51,3 +76,4 @@ public class HealthQueryController extends BaseController{
         return result;
     }
 }
+

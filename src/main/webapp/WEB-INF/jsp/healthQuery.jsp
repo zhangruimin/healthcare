@@ -25,9 +25,9 @@
                     </div>
 
                     <div id="content">
-                        <button>上一天</button>
-                        <button>上一周</button>
-                        <button>上一月</button>
+                        <a href="/healthcare/healthQuery">上一天</a>
+                        <a href="/healthcare/healthQuery?timeRange=LAST_WEEK">上一周</a>
+                        <a href="/healthcare/healthQuery?timeRange=LAST_MONTH">上一月</a>
 
                         <div align="center">
                             <div id="tabs">
@@ -37,16 +37,6 @@
                                     <li><a href="#tabs-3">血氧</a></li>
                                 </ul>
                                 <div id="tabs-1">
-
-                                    <div class="demo-container">
-                                        <div id="placeholder1" class="demo-placeholder"></div>
-                                    </div>
-
-                                    <p>
-                                        <button class="fetchSeries">显示趋势图</button>
-                                        [ <a href="body-temperature.json">see data</a> ] <span></span>
-                                    </p>
-
                                     <table id="table1" width="700" border="1" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
@@ -65,16 +55,6 @@
                                 </div>
 
                                 <div id="tabs-2">
-
-                                    <div class="demo-container">
-                                        <div id="placeholder2" class="demo-placeholder"></div>
-                                    </div>
-
-                                    <p>
-                                        <button class="fetchSeries">显示趋势图</button>
-                                        [ <a href="blood-pressure.json">see data</a> ] <span></span>
-                                    </p>
-
                                     <table id="table2" width="700" border="1" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
@@ -92,16 +72,6 @@
                                     </table>
                                 </div>
                                 <div id="tabs-3">
-
-                                    <div class="demo-container">
-                                        <div id="placeholder3" class="demo-placeholder"></div>
-                                    </div>
-
-                                    <p>
-                                        <button class="fetchSeries">显示趋势图</button>
-                                        [ <a href="blood-oxygen.json">see data</a> ] <span></span>
-                                    </p>
-
                                     <table id="table3" width="700" border="1" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
