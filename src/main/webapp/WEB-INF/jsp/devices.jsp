@@ -45,7 +45,7 @@
                             <select name="deviceType">
                                 <option value="Monitor">监控仪</option>
                             </select>
-                            <input type="submit">
+                            <input type="submit" value="添加">
                         </form>
                     </div>
                 </div>
