@@ -15,7 +15,7 @@ body {
 }
 
 .container-outer{
-    width:1000px;
+    width:1280px;
     margin:0 auto;
     min-height:100%;
     background-color: #FFFFFF;
@@ -28,5 +28,44 @@ body {
     bottom: 0;
     height: 60px;
     margin: 4px 4px 0 4px;
-    width: 992px;
+    width: 1272px;
+}
+
+.navbar{
+    background:url("../images/header.bmp") no-repeat scroll 0 0 transparent;
+    position: relative;
+    width: 1280px;
+    height: 107px;
+}
+
+.logo{
+    background:url("../images/logo.png") no-repeat scroll 0 0 transparent;
+    width:281px;
+    height: 90px;
+    position: absolute;
+    top:10px;
+    left:126px;
+}
+
+.login-body{
+    position:relative;
+    height: 600px;
+}
+
+.login-background{
+    background:url("../images/login_page_background.png") no-repeat scroll 0 0 transparent;
+    width:651px;
+    height: 611px;
+    position: absolute;
+    right:50px;
+}
+
+.login-form{
+    background:url("../images/login_bg.png") no-repeat scroll 0 0 transparent;
+    width:493px;
+    height: 282px;
+    position: absolute;
+    left:197px;
+    top:75px;
+    padding:20px;
 }

@@ -1,7 +1,7 @@
 package com.fengtuo.healthcare.server;
 
 import com.fengtuo.healthcare.extractor.HealthRecordExtractor;
-import org.apache.commons.lang.ArrayUtils;
+import com.fengtuo.healthcare.util.NumUtils;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
@@ -21,7 +21,7 @@ public class PacketRequestDecoder extends CumulativeProtocolDecoder {
         in.get(buffer);
         StringBuffer sb = new StringBuffer();
         for (byte b : buffer) {
-            sb.append(b).append(",");
+            sb.append(String.format("%x",NumUtils.toInt(b))).append("\n");
         }
         sb.deleteCharAt(sb.length()-1).append("-----");
         System.out.println(sb.toString());

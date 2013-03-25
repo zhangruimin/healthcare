@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -55,12 +54,24 @@ public class RealTimeDataController extends BaseController {
         Date date = getDate(timestamp);
         String userId = getCurrentUser(session).getId();
         WaveRecord waveRecord = waveRecordRepository.nextRecord(userId, date, waveType);
-        if(waveRecord == null){
+        WaveRecord waveRecord1 = null;
+        if(waveRecord!=null){
+            waveRecord1 = waveRecordRepository.nextRecord(userId, waveRecord.getTimestamp(), waveType);
+        }
+
+        List<WaveRecord> records = new ArrayList<WaveRecord>();
+        if(waveRecord == null || waveRecord1==null){
             waveRecord = new WaveRecord();
             waveRecord.setTimestamp(date);
             waveRecord.setData(new byte[WaveType.getDataByteNumber(waveType)]);
+            records.add(waveRecord);
+            records.add(waveRecord);
+        }   else{
+            records.add(waveRecord);
+            records.add(waveRecord1);
         }
-        return WaveRecordDto.from(waveRecord);
+
+        return WaveRecordDto.from(records);
     }
 
     @RequestMapping(value = "nextDigitData", method= RequestMethod.GET)

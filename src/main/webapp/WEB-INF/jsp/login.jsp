@@ -12,19 +12,23 @@
 </head>
 <body>
 <div class="container-outer">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar">
+        <span class="logo"></span>
     </div>
-    <div class="container-fluid">
-        <form method="post" action="/healthcare/login">
-            <dl>
-                <dt>用户名：</dt>
-                <dd><input type="text" name="userName"></dd>
-                <dt>密码：</dt>
-                <dd><input type="password" name="password"></dd>
-                <input type="submit" value="登录">
-                <a href="/healthcare/register">注册</a>
-            </dl>
-        </form>
+    <div class="login-body">
+        <span class="login-background"></span>
+        <div class="login-form">
+            <form method="post" action="/healthcare/login">
+                <dl>
+                    <dt>用户名：</dt>
+                    <dd><input type="text" name="userName"></dd>
+                    <dt>密码：</dt>
+                    <dd><input type="password" name="password"></dd>
+                    <input type="submit" value="登录">
+                    <a href="/healthcare/register">注册</a>
+                </dl>
+            </form>
+        </div>
     </div>
     <%@include file="common/foot.jsp" %>
 </div>

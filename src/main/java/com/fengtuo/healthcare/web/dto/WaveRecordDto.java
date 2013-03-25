@@ -2,8 +2,10 @@ package com.fengtuo.healthcare.web.dto;
 
 import com.fengtuo.healthcare.model.WaveRecord;
 import com.fengtuo.healthcare.util.NumUtils;
+import org.apache.commons.lang.ArrayUtils;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,10 +34,12 @@ public class WaveRecordDto {
         this.timestamp = timestamp;
     }
 
-    public static WaveRecordDto from(WaveRecord waveRecord) {
+    public static WaveRecordDto from(List<WaveRecord> waveRecords) {
+        WaveRecord first = waveRecords.get(0);
+        WaveRecord second = waveRecords.get(1);
         WaveRecordDto waveRecordDto = new WaveRecordDto();
-        waveRecordDto.data = toIntArray(waveRecord.getData());
-        waveRecordDto.timestamp = waveRecord.getTimestamp();
+        waveRecordDto.data = toIntArray(ArrayUtils.addAll(first.getData(), second.getData()));
+        waveRecordDto.timestamp = second.getTimestamp();
         return waveRecordDto;
     }
 

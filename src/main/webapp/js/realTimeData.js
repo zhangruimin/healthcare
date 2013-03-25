@@ -44,13 +44,7 @@ function realTimeDataFetcher(totalPoints, waveType){
 }
 
 function waveDiagramDrawer(settings) {
-    var defaultSettings = {
-        updateInterval: 10,
-        marginPoints : 10,
-        totalPoints : 250,
-        waveType : "ECG",
-        place:"#electrocardiogram"
-    };
+    var defaultSettings = {};
 
     var plotOptions = {
         series: { shadowSize: 0 },
@@ -131,7 +125,15 @@ function digitDataDrawer(settings) {
 }
 
 $(function () {
-    waveDiagramDrawer().draw();
+    waveDiagramDrawer(
+        {
+            updateInterval: 10,
+            marginPoints : 10,
+            totalPoints : 240,
+            waveType : "ECG",
+            place:"#electrocardiogram"
+        }
+    ).draw();
     waveDiagramDrawer({
         updateInterval: 40,
         marginPoints : 10,
