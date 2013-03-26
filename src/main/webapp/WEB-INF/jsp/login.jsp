@@ -17,17 +17,22 @@
     </div>
     <div class="login-body">
         <span class="login-background"></span>
-        <div class="login-form">
-            <form method="post" action="/healthcare/login">
-                <dl>
-                    <dt>用户名：</dt>
-                    <dd><input type="text" name="userName"></dd>
-                    <dt>密码：</dt>
-                    <dd><input type="password" name="password"></dd>
-                    <input type="submit" value="登录">
-                    <a href="/healthcare/register">注册</a>
-                </dl>
-            </form>
+        <div class="login-form-outer">
+            <div class="login-label">登录</div>
+            <div class="login-form">
+                <form method="post" action="/healthcare/login">
+                    <dl>
+                        <dd><input type="text" name="userName" placeholder="用户名：" size="25"></dd>
+                        <dd><input type="password" name="password"  placeholder="密码："></dd>
+                    </dl>
+                    <input id="login-button" type="submit" value="登录">
+                    <span id="register-links">
+                        <a href="/healthcare/register">找回密码</a>
+                        <a href="/healthcare/register">注册</a>
+                        <a href="/healthcare/register">使用流程</a>
+                    </span>
+                </form>
+            </div>
         </div>
     </div>
     <%@include file="common/foot.jsp" %>

@@ -15,7 +15,7 @@ body {
 }
 
 .container-outer{
-    width:1280px;
+    width:1000px;
     margin:0 auto;
     min-height:100%;
     background-color: #FFFFFF;
@@ -28,13 +28,13 @@ body {
     bottom: 0;
     height: 60px;
     margin: 4px 4px 0 4px;
-    width: 1272px;
+    width: 992px;
 }
 
 .navbar{
-    background:url("../images/header.bmp") no-repeat scroll 0 0 transparent;
+    background:url("../images/header.bmp") no-repeat scroll -100px 0 transparent;
     position: relative;
-    width: 1280px;
+    width: 1000px;
     height: 107px;
 }
 
@@ -60,12 +60,54 @@ body {
     right:50px;
 }
 
-.login-form{
+.login-form-outer{
     background:url("../images/login_bg.png") no-repeat scroll 0 0 transparent;
-    width:493px;
-    height: 282px;
+    width:561px;
+    height: 396px;
     position: absolute;
-    left:197px;
-    top:75px;
-    padding:20px;
+    top:85px;
+}
+
+.login-form{
+    position: absolute;
+    left:110px;
+    top:85px;
+    width:360px;
+}
+
+.login-label{
+    color: #0088ff;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left:86px;
+    top:28px;
+}
+
+#login-button{
+    background:url("../images/login_btn.png") no-repeat scroll 0 0 transparent;
+    width:104px;
+    height: 52px;
+    border: none 0;
+    color: #0088FF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#register-links{
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    right:70px;
+    bottom: 28px;
+}
+
+#register-links a{
+    margin:3px;
+}
+
+.login-form input{
+    border: 1px solid blue;
+    border-radius: 8px 8px 8px 8px;
+    width: 250px;
 }
