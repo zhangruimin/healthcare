@@ -1,5 +1,5 @@
 body {
-    background-color: #dddddd;
+    background-color: #f7f3ef;
 }
 .sidebar-nav {
     padding: 9px 0;
@@ -36,6 +36,7 @@ body {
     position: relative;
     width: 1000px;
     height: 107px;
+    margin-bottom: 0px;
 }
 
 .logo{
@@ -44,6 +45,10 @@ body {
     height: 90px;
     position: absolute;
     top:10px;
+    left:40px;
+}
+
+.logo-login{
     left:126px;
 }
 
@@ -110,4 +115,33 @@ body {
     border: 1px solid blue;
     border-radius: 8px 8px 8px 8px;
     width: 250px;
+}
+
+.navbar-top{
+    font-size: 20px;
+    position:absolute;
+    width:420px;
+    height: 30px;
+    right: 15px;
+    top:20px;
+    color: #ffffff;
+}
+
+.navbar-top a{
+    color: #ffffff;
+}
+
+.navbar-top li {
+    float: left;
+    list-style: none outside none;
+    padding:0 9px 0 9px;
+    border-left: 2px solid #D0D0D0;
+}
+
+.navbar-top li.first{
+    border-left: 0 none;
+}
+
+.container-fluid{
+    background-color: #e7ebe7;
 }

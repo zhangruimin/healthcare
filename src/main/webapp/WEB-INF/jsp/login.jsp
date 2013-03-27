@@ -8,7 +8,7 @@
 <body>
 <div class="container-outer">
     <div class="navbar">
-        <span class="logo"></span>
+        <span class="logo logo-login"></span>
     </div>
     <div class="login-body">
         <span class="login-background"></span>
