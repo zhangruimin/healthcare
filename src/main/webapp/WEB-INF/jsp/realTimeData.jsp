@@ -2,7 +2,7 @@
 <%@include file="common/includes.jsp" %>
 <html>
 <head>
-    <title>实时数据</title>
+    <title>实施监护</title>
     <%@include file="common/staticRef.jsp" %>
     <script type="text/javascript" src="js/realTimeData.js"></script>
 </head>
@@ -28,8 +28,6 @@
                 </div>
             </div><!--/span-->
         </div><!--/row-->
-
-        <hr>
     </div>
     <%@include file="common/foot.jsp" %>
 </div>

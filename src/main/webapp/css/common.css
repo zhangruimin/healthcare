@@ -143,5 +143,44 @@ body {
 }
 
 .container-fluid{
-    background-color: #e7ebe7;
+    background-color: #efebef;
+}
+
+.avatar{
+    background:url("../images/avatar.png") no-repeat scroll 0 0 transparent;
+    position: relative;
+    width: 183px;
+    height: 226px;
+    left:7px;
+    top:0px;
+}
+
+.sidebar-split{
+    background:url("../images/sidebar-splitter.png") no-repeat scroll 0 0 transparent;
+    position: relative;
+    width: 211px;
+    height: 43px;
+    left:-12px;
+    top:0px;
+}
+
+ul.nav-list li a{
+    background:url("../images/nav-btn.png") no-repeat scroll 0 0 transparent;
+    width: 162px;
+    height: 61px;
+    padding:0 0;
+    margin:0 0;
+    position: relative;
+}
+ul.nav-list li a span{
+    position: absolute;
+    left:38px;
+    top:20px;
+    font-size: 20px;
+}
+
+.span9{
+    border-left: 2px solid #bdbebd;
+    width: 80%;
+    background-color: #ffffff;
 }
