@@ -1,5 +1,6 @@
 body {
     background-color: #f7f3ef;
+    font-family: 微软雅黑;
 }
 .sidebar-nav {
     padding: 9px 0;
@@ -184,3 +185,43 @@ ul.nav-list li a span{
     width: 80%;
     background-color: #ffffff;
 }
+
+.register-form{
+    padding-left: 20px;
+}
+
+.register-form dl dt{
+    float: left;
+    font-size: 15px;
+    height: 36px;
+    line-height: 36px;
+    text-align: right;
+    width: 75px;
+    margin-right: 10px;
+}
+
+.register-form dl dd.gender{
+    height: 36px;
+    line-height: 28px;
+}
+
+.register-form dl dd.gender span{
+    float: left;
+    font-size: 15px;
+    height: 26px;
+    line-height: 26px;
+    text-align: right;
+    width: 75px;
+}
+
+#register{
+    background:url("../images/login_btn.png") no-repeat scroll 0 0 transparent;
+    width:104px;
+    height: 52px;
+    border: none 0;
+    color: #0088FF;
+    font-size: 18px;
+    margin-left: 180px;
+
+}
+
