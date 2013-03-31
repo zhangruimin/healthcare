@@ -180,32 +180,33 @@ ul.nav-list li a span{
     font-size: 20px;
 }
 
-.span9{
+.row-fluid .span9{
     border-left: 2px solid #bdbebd;
     width: 80%;
     background-color: #ffffff;
+    min-height: 800px;
 }
 
-.register-form{
+.user-info-form{
     padding-left: 20px;
 }
 
-.register-form dl dt{
+.user-info-form dl dt{
     float: left;
     font-size: 15px;
     height: 36px;
-    line-height: 36px;
+    line-height: 30px;
     text-align: right;
-    width: 75px;
-    margin-right: 10px;
+    width: 130px;
+    margin-right: 25px;
 }
 
-.register-form dl dd.gender{
+.user-info-form dl dd.gender{
     height: 36px;
     line-height: 28px;
 }
 
-.register-form dl dd.gender span{
+.user-info-form dl dd.gender span{
     float: left;
     font-size: 15px;
     height: 26px;
@@ -221,7 +222,14 @@ ul.nav-list li a span{
     border: none 0;
     color: #0088FF;
     font-size: 18px;
-    margin-left: 180px;
+    margin-left: 220px;
+}
 
+.container-outer table{
+    border: solid 1px;
+}
+
+.container-outer table td{
+    border: solid 1px;
 }
 

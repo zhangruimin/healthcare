@@ -10,7 +10,7 @@
     <div class="navbar">
         <span class="logo logo-login"></span>
     </div>
-    <div class="container-fluid register-form">
+    <div class="container-fluid user-info-form">
         <form method="post" action="/healthcare/register">
             <dl>
                 <dt>用户名：</dt>

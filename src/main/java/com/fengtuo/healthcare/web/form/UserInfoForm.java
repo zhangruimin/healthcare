@@ -11,7 +11,7 @@ import com.fengtuo.healthcare.model.User;
  * Time: 8:17 PM
  * To change this template use File | Settings | File Templates.
  */
-public class RegisterForm {
+public class UserInfoForm {
     private String userName;
     private String password;
     private String phoneNumber;
@@ -21,6 +21,15 @@ public class RegisterForm {
     private Integer weight;
     private Gender gender;
     private Career career;
+    private Integer stepLength;
+
+    public Integer getStepLength() {
+        return stepLength;
+    }
+
+    public void setStepLength(Integer stepLength) {
+        this.stepLength = stepLength;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -105,6 +114,7 @@ public class RegisterForm {
         user.setWeight(weight);
         user.setGender(gender);
         user.setCareer(career);
+        user.setStepLength(stepLength);
         return user;
     }
 }

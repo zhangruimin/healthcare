@@ -25,6 +25,15 @@ public class User {
     private Integer weight;
     private Gender gender;
     private Career career;
+    private Integer stepLength;
+
+    public Integer getStepLength() {
+        return stepLength;
+    }
+
+    public void setStepLength(Integer stepLength) {
+        this.stepLength = stepLength;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
