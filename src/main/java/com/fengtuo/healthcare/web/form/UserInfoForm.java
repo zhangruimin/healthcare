@@ -1,23 +1,19 @@
-package com.fengtuo.healthcare.model;
+package com.fengtuo.healthcare.web.form;
 
-import org.springframework.data.annotation.Id;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.fengtuo.healthcare.model.Career;
+import com.fengtuo.healthcare.model.Gender;
+import com.fengtuo.healthcare.model.User;
 
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
- * Date: 3/13/13
- * Time: 9:43 PM
+ * Date: 3/18/13
+ * Time: 8:17 PM
  * To change this template use File | Settings | File Templates.
  */
-public class User {
-    @Id
-    private String id;
+public class UserInfoForm {
     private String userName;
     private String password;
-    private List<Device> devices = new ArrayList<Device>();
     private String phoneNumber;
     private String email;
     private Integer age;
@@ -91,14 +87,6 @@ public class User {
         this.career = career;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -115,15 +103,18 @@ public class User {
         this.password = password;
     }
 
-    public List<Device> getDevices() {
-        return devices;
-    }
-
-    public void setDevices(List<Device> devices) {
-        this.devices = devices;
-    }
-
-    public void addDevice(Device device) {
-        this.devices.add(device);
+    public User toUser(){
+        User user = new User();
+        user.setUserName(userName);
+        user.setPassword(password);
+        user.setPhoneNumber(phoneNumber);
+        user.setEmail(email);
+        user.setAge(age);
+        user.setHeight(height);
+        user.setWeight(weight);
+        user.setGender(gender);
+        user.setCareer(career);
+        user.setStepLength(stepLength);
+        return user;
     }
 }
