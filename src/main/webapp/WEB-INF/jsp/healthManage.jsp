@@ -5,8 +5,6 @@
 <head>
 <title>健康管理</title>
  <%@include file="common/staticRef.jsp" %>
-<link href="/healthcare/css/bootstrap/bootstrap-new-examples.css"
-	rel="stylesheet" />
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
 <script type="text/javascript" src="js/lib/jquery-c.js"></script>
 <script type="text/javascript" src="js/lib/jquery-flot-c.js"></script>
@@ -29,10 +27,12 @@
 						</div>
 
 						<div id="content">
-							<a id="lastday">上一天</a> 
-							<a id="lastweek">上一周</a> 
-							<a id="lastmonth">上一月</a>
-
+                            <div class="time-range">
+                                <a id="lastday">上一天</a>
+                                <a id="lastweek">上一周</a>
+                                <a id="lastmonth">上一月</a>
+                            </div>
+                            <div class="clear"></div>
 							<div class="center">
 								<div id="tabs">
 									<ul>

@@ -22,9 +22,9 @@
                     </dl>
                     <input id="login-button" type="submit" value="登录">
                     <span id="register-links">
-                        <a href="/healthcare/register">找回密码</a>
+                        <a href="#">找回密码</a>
                         <a href="/healthcare/register">注册</a>
-                        <a href="/healthcare/register">使用流程</a>
+                        <a href="#">使用流程</a>
                     </span>
                 </form>
             </div>

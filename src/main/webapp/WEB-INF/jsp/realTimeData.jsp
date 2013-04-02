@@ -14,6 +14,10 @@
             <%@include file="common/sidebar.jsp" %>
             <div class="span9">
                 <div class="hero-unit">
+                    <div id="header">
+                        <h2>实施监护</h2>
+                    </div>
+
                     <h2>心电波形</h2>
                     <div id="electrocardiogram" style="width:600px;height:300px;"></div>
                     <h2>血氧波形</h2>

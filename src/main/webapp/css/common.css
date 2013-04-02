@@ -2,6 +2,24 @@ body {
     background-color: #f7f3ef;
     font-family: 微软雅黑;
 }
+
+.clear {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.selfClear:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+
+}
+
 .sidebar-nav {
     padding: 9px 0;
 }
@@ -187,10 +205,6 @@ ul.nav-list li a span{
     min-height: 800px;
 }
 
-.user-info-form{
-    padding-left: 20px;
-}
-
 .user-info-form dl dt{
     float: left;
     font-size: 15px;
@@ -233,3 +247,41 @@ ul.nav-list li a span{
     border: solid 1px;
 }
 
+.hero-unit #header{
+    background:url("../images/h2.png") no-repeat scroll 0 0 transparent;
+    border-bottom: 3px solid #66950F;
+    height: 36px;
+    padding-left: 34px;
+    width: 800px;
+}
+
+.hero-unit #header h2{
+    line-height: 36px;
+    font-size: 20px;
+}
+
+#register-form{
+    position: relative;
+}
+
+#register-form-bg{
+    background:url("../images/register_bg.png") no-repeat scroll 0 0 transparent;
+    width: 535px;
+    height: 596px;
+    position: absolute;
+    right: 60px;
+    top:-80px;
+}
+
+#content .time-range{
+ float: right;
+}
+
+#content .time-range a{
+    margin:0 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+#content .time-range a:hover{
+    text-decoration: none;
+}

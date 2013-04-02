@@ -20,10 +20,12 @@
                     </div>
 
                     <div id="content">
-                        <a href="/healthcare/healthQuery">上一天</a>
-                        <a href="/healthcare/healthQuery?timeRange=LAST_WEEK">上一周</a>
-                        <a href="/healthcare/healthQuery?timeRange=LAST_MONTH">上一月</a>
-
+                        <div class="time-range">
+                            <a href="/healthcare/healthQuery">上一天</a>
+                            <a href="/healthcare/healthQuery?timeRange=LAST_WEEK">上一周</a>
+                            <a href="/healthcare/healthQuery?timeRange=LAST_MONTH">上一月</a>
+                        </div>
+                        <div class="clear"></div>
                         <div align="center">
                             <div id="tabs">
                                 <ul>
