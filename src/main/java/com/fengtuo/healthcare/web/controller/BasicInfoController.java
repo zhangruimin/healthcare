@@ -39,9 +39,19 @@ public class BasicInfoController extends BaseController{
 
     @RequestMapping(method = RequestMethod.POST)
     public String processForm(UserInfoForm registerForm, HttpSession session) {
+        User currentUser = userRepository.findById(getCurrentUser(session).getId());
         User user = registerForm.toUser();
-        userRepository.save(user);
-        session.setAttribute("currentUser", user);
+        currentUser.setCareer(user.getCareer());
+        currentUser.setAge(user.getAge());
+        currentUser.setEmail(user.getEmail());
+        currentUser.setGender(user.getGender());
+        currentUser.setHeight(user.getHeight());
+        currentUser.setPhoneNumber(user.getPhoneNumber());
+        currentUser.setStepLength(user.getStepLength());
+        currentUser.setUserName(user.getUserName());
+        currentUser.setWeight(user.getWeight());
+        userRepository.save(currentUser);
+        session.setAttribute("currentUser", currentUser);
         return "redirect:basicInfo";
     }
 }
