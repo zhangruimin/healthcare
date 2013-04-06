@@ -1,4 +1,4 @@
-<%@ page language="java" session="true" contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" session="true" contentType="text/html;charset=UTF-8" %>
 <%@include file="common/includes.jsp" %>
 <html>
 <head>
@@ -17,21 +17,42 @@
                     <div id="header">
                         <h2>实施监护</h2>
                     </div>
+                    <div id="real-time-container">
+                        <div id="digit-real-time-data">
+                            <div id="SpO2-real-time">
+                                <div id="SpO2-label">SpO2%</div>
+                                <div id="bloodOxygen">无数据</div>
+                            </div>
+                            <div id="RPbpm-real-time">
+                                <div id="RPbpm-label">RPbpm</div>
+                                <div id="heartRate">无数据</div>
+                            </div>
+                            <div id="RESP-real-time">
+                                <div id="RESP-label">RESP</div>
+                                <div id="RESP-value">无数据</div>
+                            </div>
+                            <div id="TEMP-real-time">
+                                <div id="TEMP-label">TEMP</div>
+                                <div id="temperature">无数据</div>
+                            </div>
+                        </div>
 
-                    <h2>心电波形</h2>
-                    <div id="electrocardiogram" style="width:600px;height:300px;"></div>
-                    <h2>血氧波形</h2>
-                    <div id="bloodoxygendiogram" style="width:600px;height:300px;"></div>
-                    <h2>体温</h2>
-                    <div id="temperature">无数据</div>
-                    <h2>心率</h2>
-                    <div id="heartRate">无数据</div>
-                    <h2>血氧</h2>
-                    <div id="bloodOxygen">无数据</div>
+                        <div id="ECG-wave">
+                            <div id="ECG-wave-label">ECG</div>
+                            <div id="electrocardiogram"></div>
+                        </div>
+
+                        <div id="SpO2-wave">
+                            <div id="SpO2-wave-label">SpO2</div>
+                            <div id="bloodoxygendiogram"></div>
+                        </div>
+                    </div>
 
                 </div>
-            </div><!--/span-->
-        </div><!--/row-->
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
     </div>
     <%@include file="common/foot.jsp" %>
 </div>

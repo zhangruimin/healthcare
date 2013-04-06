@@ -337,3 +337,55 @@ dl dd{
     border: none 0;
     font-size: 15px;
 }
+
+#digit-real-time-data{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    width: 210px;
+    height: 500px;
+    font-size: 20px;
+}
+
+#real-time-container{
+    position: relative;
+}
+
+#electrocardiogram{
+    margin: 10px;
+    width:500px;
+    height:200px;
+}
+
+#ECG-wave, #SpO2-wave{
+    position: relative;
+    margin:10px;
+}
+
+#bloodoxygendiogram{
+    margin: 10px;
+    width:500px;
+    height:200px;
+}
+
+#SpO2-real-time{
+    float:left;
+    margin: 10px 10px;
+    color: #f17163;
+}
+
+#RPbpm-real-time{
+    float:left;
+    margin: 10px 10px;
+    color: #31ae6b;
+}
+#RESP-real-time{
+    float:left;
+    margin: 10px 10px;
+    color:#5aaade;
+}
+#TEMP-real-time{
+    float:left;
+    margin: 10px 10px;
+    color:#ffb65a;
+}

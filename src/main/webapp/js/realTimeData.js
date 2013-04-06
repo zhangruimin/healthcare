@@ -43,17 +43,7 @@ function realTimeDataFetcher(totalPoints, waveType){
     }
 }
 
-function waveDiagramDrawer(settings) {
-    var defaultSettings = {};
-
-    var plotOptions = {
-        series: { shadowSize: 0 },
-        yaxis: { min: 0, max: 300 },
-        xaxis: { show: false }
-    };
-
-    settings =  $.extend(defaultSettings,settings);
-
+function waveDiagramDrawer(settings, plotOptions) {
     return {
         draw: function () {
             var fetcher = realTimeDataFetcher(settings.totalPoints, settings.waveType);
@@ -132,14 +122,27 @@ $(function () {
             totalPoints : 240,
             waveType : "ECG",
             place:"#electrocardiogram"
+        },
+        {
+            series: { shadowSize: 0,color:"#52b242" },
+            yaxis: { min: 0, max: 300},
+            xaxis: { show: false }
         }
     ).draw();
+
     waveDiagramDrawer({
         updateInterval: 40,
         marginPoints : 10,
         totalPoints : 60,
         waveType : "BO",
         place:"#bloodoxygendiogram"
-    }).draw();
+    },
+        {
+            series: { shadowSize: 0, color:"#ff7163" },
+            yaxis: { min: 20, max: 100},
+            xaxis: { show: false } ,
+            legend:{show:true}
+        }
+    ).draw();
     digitDataDrawer().draw();
 });
