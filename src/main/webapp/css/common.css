@@ -17,7 +17,6 @@ body {
     display: block;
     height: 0;
     visibility: hidden;
-
 }
 
 .sidebar-nav {
@@ -296,4 +295,45 @@ ul.nav-list li a span{
 
 .query-result td{
     padding:2px 4px;
+}
+
+dl dt {
+    float: left;
+    font-size: 15px;
+    height: 36px;
+    line-height: 30px;
+    margin-right: 25px;
+    text-align: right;
+    width: 130px;
+}
+dl dd{
+    min-width: 2px;
+    min-height: 2px;
+}
+
+.health-archive table{
+    width:95%;
+    border: none 0;
+    font-size: 15px;
+}
+
+.health-archive table tr.with-separator{
+    border-bottom: solid 2px #d6d7d6;
+}
+
+
+.health-archive table tr td  {
+    padding: 2px 4px;
+    border: none 0;
+}
+
+.health-archive table tr td:first-child{
+    width:20%;
+    text-align: right;
+}
+
+.health-query table{
+    width:95%;
+    border: none 0;
+    font-size: 15px;
 }

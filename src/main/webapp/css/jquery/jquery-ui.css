@@ -783,8 +783,8 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;
-	font-size: 1.1em/*{fsDefault}*/;
+	font-family: 微软雅黑/*{ffDefault}*/;
+	/*font-size: 1.1em*//*{fsDefault}*//*;*/
 }
 .ui-widget .ui-widget {
 	font-size: 1em;

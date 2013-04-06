@@ -4,10 +4,10 @@
 <head>
     <title>健康查询</title>
     <%@include file="common/staticRef.jsp" %>
-    <script type="text/javascript" src="js/healthQuery.js"></script>
+    <script type="text/javascript" src="js/initTabs.js"></script>
 </head>
 <body>
-<div class="container-outer">
+<div class="container-outer health-query">
     <%@include file="common/navbar.jsp" %>
     <div class="container-fluid">
         <div class="row-fluid">
