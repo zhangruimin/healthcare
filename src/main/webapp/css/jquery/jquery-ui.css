@@ -796,11 +796,11 @@ body .ui-tooltip {
 	font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;
 	font-size: 1em;
 }
-.ui-widget-content {
-	border: 1px solid #aaaaaa/*{borderColorContent}*/;
-	background: #ffffff/*{bgColorContent}*/ url(images/ui-bg_flat_75_ffffff_40x100.png)/*{bgImgUrlContent}*/ 50%/*{bgContentXPos}*/ 50%/*{bgContentYPos}*/ repeat-x/*{bgContentRepeat}*/;
-	color: #222222/*{fcContent}*/;
-}
+/*.ui-widget-content {*/
+	/*border: 1px solid #aaaaaa*//**//*{borderColorContent}*//**//*;*/
+	/*background: #ffffff*//*{bgColorContent}*//* url(images/ui-bg_flat_75_ffffff_40x100.png)*//*{bgImgUrlContent}*//* 50%*//*{bgContentXPos}*//* 50%*//*{bgContentYPos}*//* repeat-x*//*{bgContentRepeat}*//*;*/
+	/*color: #222222*//*{fcContent}*//*;*/
+/*}*/
 .ui-widget-content a {
 	color: #222222/*{fcContent}*/;
 }
@@ -820,7 +820,7 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
 	border: 1px solid #d3d3d3/*{borderColorDefault}*/;
-	background: #e6e6e6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
+	background: #7bdba5/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x/*{bgDefaultRepeat}*/;
 	font-weight: normal/*{fwDefault}*/;
 	color: #555555/*{fcDefault}*/;
 }
@@ -852,7 +852,7 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
 	border: 1px solid #aaaaaa/*{borderColorActive}*/;
-	background: #ffffff/*{bgColorActive}*/ url(images/ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/ 50%/*{bgActiveXPos}*/ 50%/*{bgActiveYPos}*/ repeat-x/*{bgActiveRepeat}*/;
+	background: #E6E6E6/*{bgColorActive}*/ url(images/ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/ 50%/*{bgActiveXPos}*/ 50%/*{bgActiveYPos}*/ repeat-x/*{bgActiveRepeat}*/;
 	font-weight: normal/*{fwDefault}*/;
 	color: #212121/*{fcActive}*/;
 }
@@ -1133,30 +1133,30 @@ body .ui-tooltip {
 ----------------------------------*/
 
 /* Corner radius */
-.ui-corner-all,
-.ui-corner-top,
-.ui-corner-left,
-.ui-corner-tl {
-	border-top-left-radius: 4px/*{cornerRadius}*/;
-}
-.ui-corner-all,
-.ui-corner-top,
-.ui-corner-right,
-.ui-corner-tr {
-	border-top-right-radius: 4px/*{cornerRadius}*/;
-}
-.ui-corner-all,
-.ui-corner-bottom,
-.ui-corner-left,
-.ui-corner-bl {
-	border-bottom-left-radius: 4px/*{cornerRadius}*/;
-}
-.ui-corner-all,
-.ui-corner-bottom,
-.ui-corner-right,
-.ui-corner-br {
-	border-bottom-right-radius: 4px/*{cornerRadius}*/;
-}
+/*.ui-corner-all,*/
+/*.ui-corner-top,*/
+/*.ui-corner-left,*/
+/*.ui-corner-tl {*/
+	/*border-top-left-radius: 4px*//*{cornerRadius}*//*;*/
+/*}*/
+/*.ui-corner-all,*/
+/*.ui-corner-top,*/
+/*.ui-corner-right,*/
+/*.ui-corner-tr {*/
+	/*border-top-right-radius: 4px*//*{cornerRadius}*//*;*/
+/*}*/
+/*.ui-corner-all,*/
+/*.ui-corner-bottom,*/
+/*.ui-corner-left,*/
+/*.ui-corner-bl {*/
+	/*border-bottom-left-radius: 4px*//*{cornerRadius}*//*;*/
+/*}*/
+/*.ui-corner-all,*/
+/*.ui-corner-bottom,*/
+/*.ui-corner-right,*/
+/*.ui-corner-br {*/
+	/*border-bottom-right-radius: 4px*//*{cornerRadius}*//*;*/
+/*}*/
 
 /* Overlays */
 .ui-widget-overlay {

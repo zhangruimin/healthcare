@@ -293,3 +293,7 @@ ul.nav-list li a span{
 .add_devices{
     margin-top: 10px;
 }
+
+.query-result td{
+    padding:2px 4px;
+}

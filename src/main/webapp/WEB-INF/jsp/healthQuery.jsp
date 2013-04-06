@@ -34,7 +34,7 @@
                                     <li><a href="#tabs-3">血氧</a></li>
                                 </ul>
                                 <div id="tabs-1">
-                                    <table id="table1" width="700" border="1" cellpadding="0"
+                                    <table class="query-result" id="table1" width="700" border="1" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
                                             <th width="20%">硬件编号</th>
@@ -52,12 +52,12 @@
                                 </div>
 
                                 <div id="tabs-2">
-                                    <table id="table2" width="700" border="1" cellpadding="0"
+                                    <table class="query-result" id="table2" width="700" border="1" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
-                                            <td width="20%">硬件编号</td>
-                                            <td width="40%">监测时间</td>
-                                            <td width="40%">数值</td>
+                                            <th width="20%">硬件编号</th>
+                                            <th width="40%">监测时间</th>
+                                            <th width="40%">数值</th>
                                         </tr>
                                         <c:forEach var="record" items="${HRRecords}">
                                             <tr>
@@ -69,12 +69,12 @@
                                     </table>
                                 </div>
                                 <div id="tabs-3">
-                                    <table id="table3" width="700" border="1" cellpadding="0"
+                                    <table class="query-result" id="table3" width="700" border="1" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
-                                            <td width="20%">硬件编号</td>
-                                            <td width="40%">监测时间</td>
-                                            <td width="40%">数值</td>
+                                            <th width="20%">硬件编号</th>
+                                            <th width="40%">监测时间</th>
+                                            <th width="40%">数值</th>
                                         </tr>
                                         <c:forEach var="record" items="${SPO2Records}">
                                             <tr>
