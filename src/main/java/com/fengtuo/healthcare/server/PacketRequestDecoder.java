@@ -21,7 +21,7 @@ public class PacketRequestDecoder extends CumulativeProtocolDecoder {
         in.get(buffer);
         StringBuffer sb = new StringBuffer();
         for (byte b : buffer) {
-            sb.append(String.format("%x",NumUtils.toInt(b))).append("\n");
+            sb.append(String.format("%x",NumUtils.toInt(b))).append(",");
         }
         sb.deleteCharAt(sb.length()-1).append("-----");
         System.out.println(sb.toString());

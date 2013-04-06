@@ -62,6 +62,10 @@
         <property name="mongoOperations" ref="mongoTemplate"/>
     </bean>
 
+    <bean id="lastWaveRecordRepository" class="com.fengtuo.healthcare.repository.LastWaveRecordRepository">
+        <property name="mongoOperations" ref="mongoTemplate"/>
+    </bean>
+
     <bean id="userRepository" class="com.fengtuo.healthcare.repository.UserRepository">
         <property name="mongoOperations" ref="mongoTemplate"/>
     </bean>
@@ -70,5 +74,6 @@
         <property name="digitRecordRepository" ref="digitRecordRepository"/>
         <property name="waveRecordRepository" ref="waveRecordRepository"/>
         <property name="userRepository" ref="userRepository"/>
+        <property name="lastWaveRecordRepository" ref="lastWaveRecordRepository"/>
     </bean>
 </beans>

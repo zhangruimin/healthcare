@@ -2,6 +2,8 @@ package com.fengtuo.healthcare.repository;
 
 import com.fengtuo.healthcare.model.Packet;
 
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -15,6 +17,8 @@ public class PacketRepository {
 
     private UserRepository userRepository;
 
+    private LastWaveRecordRepository lastWaveRecordRepository;
+
     private DigitRecordRepository digitRecordRepository;
 
     public PacketRepository() {
@@ -22,14 +26,20 @@ public class PacketRepository {
 
     public PacketRepository(DigitRecordRepository digitRecordRepository,
                             WaveRecordRepository waveRecordRepository,
-                            UserRepository userRepository) {
+                            UserRepository userRepository,
+                            LastWaveRecordRepository lastWaveRecordRepository) {
         this.digitRecordRepository = digitRecordRepository;
         this.waveRecordRepository = waveRecordRepository;
         this.userRepository = userRepository;
+        this.lastWaveRecordRepository = lastWaveRecordRepository;
     }
 
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    public void setLastWaveRecordRepository(LastWaveRecordRepository lastWaveRecordRepository) {
+        this.lastWaveRecordRepository = lastWaveRecordRepository;
     }
 
     public void setWaveRecordRepository(WaveRecordRepository waveRecordRepository) {
@@ -41,8 +51,10 @@ public class PacketRepository {
     }
 
     public void save(Packet packet){
-        packet.initRecordUser(userRepository.findUser(packet.getDeviceId()));
+        String userId = userRepository.findUser(packet.getDeviceId());
+        packet.initRecordUser(userId);
         digitRecordRepository.insert(packet.getDigitRecords());
+        lastWaveRecordRepository.refreshLastWaveRecord(userId, new Date());
         waveRecordRepository.insert(packet.getWaveRecords());
     }
 }

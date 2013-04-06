@@ -5,7 +5,7 @@
 
     <ul class="navbar-top">
         <li class="first">欢迎回来： <a href="#" class="navbar-link">${currentUser.userName}</a></li>
-        <li><a href="/healthcare/users/devices?userId=1">设备管理</a>  </li>
+        <li><a href="/healthcare/users/devices?userId=${currentUser.id}">设备管理</a>  </li>
         <li><a href="/healthcare/logout" class="navbar-link">退出</a>  </li>
     </ul>
 </div>

@@ -28,6 +28,11 @@
         <property name="digitRecordRepository" ref="digitRecordRepository"/>
         <property name="waveRecordRepository" ref="waveRecordRepository"/>
         <property name="userRepository" ref="userRepository"/>
+        <property name="lastWaveRecordRepository" ref="lastWaveRecordRepository"/>
+    </bean>
+
+    <bean id="lastWaveRecordRepository" class="com.fengtuo.healthcare.repository.LastWaveRecordRepository">
+        <property name="mongoOperations" ref="mongoTemplate"/>
     </bean>
 
     <bean id="packetService" class="com.fengtuo.healthcare.service.PacketService">

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,5 +35,15 @@ public class WaveRecordRepository extends RepositoryBase<WaveRecord> {
         query.addCriteria(Criteria.where("userId").is(userId));
         query.with(new Sort(Sort.Direction.ASC, "timestamp"));
         return mongoOperations.findOne(query,WaveRecord.class,COLLECTION);
+    }
+
+    public List<WaveRecord> nextBatchRecord(String userId, Date date, WaveType waveType, int batchNum) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("timestamp").gt(date));
+        query.addCriteria(Criteria.where("waveType").is(waveType));
+        query.addCriteria(Criteria.where("userId").is(userId));
+        query.with(new Sort(Sort.Direction.ASC, "timestamp"));
+        List<WaveRecord> waveRecords = mongoOperations.find(query, WaveRecord.class, COLLECTION);
+        return waveRecords.subList(0, Math.min(batchNum, waveRecords.size()));
     }
 }

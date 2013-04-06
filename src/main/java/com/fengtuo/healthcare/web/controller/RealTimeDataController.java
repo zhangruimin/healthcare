@@ -1,10 +1,8 @@
 package com.fengtuo.healthcare.web.controller;
 
-import com.fengtuo.healthcare.model.DataType;
-import com.fengtuo.healthcare.model.DigitRecord;
-import com.fengtuo.healthcare.model.WaveRecord;
-import com.fengtuo.healthcare.model.WaveType;
+import com.fengtuo.healthcare.model.*;
 import com.fengtuo.healthcare.repository.DigitRecordRepository;
+import com.fengtuo.healthcare.repository.LastWaveRecordRepository;
 import com.fengtuo.healthcare.repository.WaveRecordRepository;
 import com.fengtuo.healthcare.web.dto.RealDigitDataDto;
 import com.fengtuo.healthcare.web.dto.WaveRecordDto;
@@ -32,49 +30,61 @@ import java.util.List;
 @Controller
 @RequestMapping("/realTimeData")
 public class RealTimeDataController extends BaseController {
+    private static final int BATCH_NUM = 2;
     private static final String REAL_TIME_DATA = "realTimeData";
+    private static final int WAIT_TIME = 5;
     private final WaveRecordRepository waveRecordRepository;
     private final DigitRecordRepository digitRecordRepository;
+    private LastWaveRecordRepository lastWaveRecordRepository;
 
     @Autowired
-    public RealTimeDataController(WaveRecordRepository waveRecordRepository, DigitRecordRepository digitRecordRepository) {
+    public RealTimeDataController(WaveRecordRepository waveRecordRepository,
+                                  DigitRecordRepository digitRecordRepository,
+                                  LastWaveRecordRepository lastWaveRecordRepository) {
         this.waveRecordRepository = waveRecordRepository;
         this.digitRecordRepository = digitRecordRepository;
+        this.lastWaveRecordRepository = lastWaveRecordRepository;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap model) {
         return REAL_TIME_DATA;
     }
 
-    @RequestMapping(value = "next", method= RequestMethod.GET)
+    @RequestMapping(value = "next", method = RequestMethod.GET)
     public
     @ResponseBody
-    WaveRecordDto next(@RequestParam long timestamp,@RequestParam WaveType waveType, HttpSession session) {
+    WaveRecordDto next(@RequestParam long timestamp, @RequestParam WaveType waveType, HttpSession session) {
         Date date = getDate(timestamp);
         String userId = getCurrentUser(session).getId();
-        WaveRecord waveRecord = waveRecordRepository.nextRecord(userId, date, waveType);
-        WaveRecord waveRecord1 = null;
-        if(waveRecord!=null){
-            waveRecord1 = waveRecordRepository.nextRecord(userId, waveRecord.getTimestamp(), waveType);
+        if (isNoDataReceived(userId)) {
+            return WaveRecordDto.from(getEmptyWaveRecords(date, waveType));
         }
-
-        List<WaveRecord> records = new ArrayList<WaveRecord>();
-        if(waveRecord == null || waveRecord1==null){
-            waveRecord = new WaveRecord();
-            waveRecord.setTimestamp(date);
-            waveRecord.setData(new byte[WaveType.getDataByteNumber(waveType)]);
-            records.add(waveRecord);
-            records.add(waveRecord);
-        }   else{
-            records.add(waveRecord);
-            records.add(waveRecord1);
+        List<WaveRecord> waveRecords = waveRecordRepository.nextBatchRecord(userId, date, waveType, BATCH_NUM);
+        if (waveRecords.size() < BATCH_NUM) {
+            return WaveRecordDto.from(getEmptyWaveRecords(date, waveType));
         }
-
-        return WaveRecordDto.from(records);
+        return WaveRecordDto.from(waveRecords);
     }
 
-    @RequestMapping(value = "nextDigitData", method= RequestMethod.GET)
+    private boolean isNoDataReceived(String userId) {
+        LastWaveRecord lastWaveRecord = lastWaveRecordRepository.FindLastWaveRecord(userId);
+        return lastWaveRecord == null
+                || new Date().getTime() - lastWaveRecord.getTimestamp().getTime() > WAIT_TIME * 1000;
+    }
+
+    private List<WaveRecord> getEmptyWaveRecords(Date date, WaveType waveType) {
+        List<WaveRecord> records = new ArrayList<WaveRecord>();
+        WaveRecord waveRecord = new WaveRecord();
+        waveRecord.setTimestamp(date);
+        waveRecord.setData(new byte[WaveType.getDataByteNumber(waveType)]);
+        for (int i = 0; i < BATCH_NUM; i++) {
+            records.add(waveRecord);
+        }
+        return records;
+    }
+
+    @RequestMapping(value = "nextDigitData", method = RequestMethod.GET)
     public
     @ResponseBody
     RealDigitDataDto nextDigitData(HttpSession session) {
@@ -86,20 +96,20 @@ public class RealTimeDataController extends BaseController {
         DigitRecord lastHeartRate = digitRecordRepository.findLastRecordAfter(userId, DataType.HR, time);
         DigitRecord lastBloodOxygen = digitRecordRepository.findLastRecordAfter(userId, DataType.SPO2, time);
         RealDigitDataDto realDigitDataDto = new RealDigitDataDto();
-        if(lastTemperature!=null){
+        if (lastTemperature != null) {
             realDigitDataDto.setTemperature(lastTemperature.getDataString());
         }
-        if(lastHeartRate!=null){
+        if (lastHeartRate != null) {
             realDigitDataDto.setHeartRate(lastHeartRate.getDataString());
         }
-        if(lastBloodOxygen!=null){
+        if (lastBloodOxygen != null) {
             realDigitDataDto.setBloodOxygen(lastBloodOxygen.getDataString());
         }
         return realDigitDataDto;
     }
 
     private Date getDate(long timestamp) {
-        if(timestamp == 0){
+        if (timestamp == 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.SECOND, -10);
             return calendar.getTime();

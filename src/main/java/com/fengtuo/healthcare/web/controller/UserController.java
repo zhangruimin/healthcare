@@ -1,10 +1,9 @@
 package com.fengtuo.healthcare.web.controller;
 
-import com.fengtuo.healthcare.model.*;
-import com.fengtuo.healthcare.repository.DigitRecordRepository;
+import com.fengtuo.healthcare.model.Device;
+import com.fengtuo.healthcare.model.DeviceType;
+import com.fengtuo.healthcare.model.User;
 import com.fengtuo.healthcare.repository.UserRepository;
-import com.fengtuo.healthcare.web.dto.DigitRecordDto;
-import com.fengtuo.healthcare.web.dto.WaveRecordDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,7 +23,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/users")
-public class UserController {
+public class UserController extends BaseController{
     private static final String DEVICES = "devices";
     private UserRepository userRepository;
 
@@ -43,11 +40,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "devices",method= RequestMethod.POST)
-    public String addDevice(ModelMap model, @RequestParam String deviceId, @RequestParam DeviceType deviceType) {
-        User user = userRepository.findById("1");
-        user.addDevice(new Device(deviceId,deviceType));
-        userRepository.save(user);
-        return "redirect:devices?userId=1";
+    public String addDevice(HttpSession session, ModelMap model, @RequestParam String deviceId, @RequestParam DeviceType deviceType) {
+        User currentUser = userRepository.findById(getCurrentUser(session).getId());
+        currentUser.addDevice(new Device(deviceId,deviceType));
+        userRepository.save(currentUser);
+        return "redirect:devices?userId="+currentUser.getId();
     }
 
     @RequestMapping(value = "createUser",method= RequestMethod.GET)

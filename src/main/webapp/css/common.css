@@ -285,3 +285,11 @@ ul.nav-list li a span{
 #content .time-range a:hover{
     text-decoration: none;
 }
+
+#content{
+    padding:10px;
+}
+
+.add_devices{
+    margin-top: 10px;
+}

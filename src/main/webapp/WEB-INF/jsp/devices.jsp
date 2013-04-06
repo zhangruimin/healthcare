@@ -23,8 +23,8 @@
                         <table id="table1" width="700" border="1" cellpadding="0"
                                cellspacing="0">
                             <tr>
-                                <th width="50%">设备类型</th>
                                 <th width="50%">设备编号</th>
+                                <th width="50%">设备类型</th>
                             </tr>
                             <c:forEach var="device" items="${devices}">
                                 <tr>
@@ -33,9 +33,7 @@
                                 </tr>
                             </c:forEach>
                         </table>
-                        <h2>添加设备</h2>
-
-                        <form method="post" action="/healthcare/users/devices">
+                        <form class="add_devices" method="post" action="/healthcare/users/devices">
                             <input type="text" name="deviceId">
                             <select name="deviceType">
                                 <option value="Monitor">监控仪</option>

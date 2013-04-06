@@ -51,6 +51,7 @@ public class Packet {
     }
 
     public void initRecordUser(String userId) {
+        System.out.println("userid:"+userId);
         for(DigitRecord digitRecord:digitRecords){
             digitRecord.setUserId(userId);
         }
