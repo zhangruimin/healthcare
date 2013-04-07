@@ -5,6 +5,7 @@
 <head>
 <title>健康管理</title>
  <%@include file="common/staticRef.jsp" %>
+ <link rel="stylesheet" href="css/bootstrap/bootstrap-new-examples.css"></link>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
 <script type="text/javascript" src="js/lib/jquery-c.js"></script>
 <script type="text/javascript" src="js/lib/jquery-flot-c.js"></script>
