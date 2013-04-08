@@ -12,36 +12,36 @@ function dataFetcher(time, dataType,place){
             if(null!=dataType){	
 			  var result=[];
                 for(var i=0;i<data1[0].data.length;i++){
-                	result.push([data1[0].timestamp[i],data1[0].data[i]]);
+                	result.push([new Date(data1[0].timestamp[i].replace(/-/ig,'/')).getTime(),parseFloat(data1[0].data[i])]);
                 }    
               if(dataType=="TEMP1"){
-                	$.plot(place,[result], {xaxis : {mode : "time"}});
+                	$.plot(place,[result], {xaxis:{mode:"time",timezone: "browser"},points:{show: true},lines:{show: true}});
 			  }else if(dataType=="HR"){
-				  $.plot(place,[result], {xaxis : {mode : "time"}});
+				  $.plot(place,[result], {xaxis:{mode:"time",timezone: "browser"},points:{show: true},lines:{show: true}});
 			  }else if(dataType=="SPO2"){
-				  $.plot(place,[result], {xaxis : {mode : "time"}});
+				  $.plot(place,[result], {xaxis:{mode:"time",timezone: "browser"},points:{show: true},lines:{show: true}});
 			  }
             }
 			  else{
 				  
 				  var result1=[];
 	                for(var i=0;i<data1[0].data.length;i++){
-	                	result1.push([data1[0].timestamp[i],data1[0].data[i]]);
+	                	result1.push([new Date(data1[0].timestamp[i].replace(/-/ig,'/')).getTime(),parseFloat(data1[0].data[i])]);
 	                } 
 	                
 	                var result2=[];
 	                for(var i=0;i<data1[1].data.length;i++){
-	                	result2.push([data1[1].timestamp[i],data1[1].data[i]]);
+	                	result2.push([new Date(data1[1].timestamp[i].replace(/-/ig,'/')).getTime(),parseFloat(data1[1].data[i])]);
 	                } 
 	                
 	                var result3=[];
 	                for(var i=0;i<data1[2].data.length;i++){
-	                	result3.push([data1[2].timestamp[i],data1[2].data[i]]);
+	                	result3.push([new Date(data1[2].timestamp[i].replace(/-/ig,'/')).getTime(),parseFloat(data1[2].data[i])]);
 	                } 
 				  
-				  $.plot("#placeholder1",[result1], {xaxis : {mode : "time"}});
-				  $.plot("#placeholder2",[result2], {xaxis : {mode : "time"}});
-				  $.plot("#placeholder3",[result3], {xaxis : {mode : "time"}});
+				  $.plot("#placeholder1",[result1], {xaxis : {mode : "time",timezone: "browser"},points:{show: true},lines:{show: true}});
+				  $.plot("#placeholder2",[result2], {xaxis : {mode : "time",timezone: "browser"},points:{show: true},lines:{show: true}});
+				  $.plot("#placeholder3",[result3], {xaxis : {mode : "time",timezone: "browser"},points:{show: true},lines:{show: true}});
 			  }
             },
             error: function () {

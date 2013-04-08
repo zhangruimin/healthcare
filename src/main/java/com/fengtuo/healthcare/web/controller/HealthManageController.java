@@ -1,5 +1,6 @@
 package com.fengtuo.healthcare.web.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -78,7 +79,7 @@ public class HealthManageController extends BaseController {
 		
 		for(int i=0;i<records.size();i++){
 			data[i]=records.get(i).getDataString();
-			timeStamp[i]=String.valueOf(records.get(i).getTimestamp().getTime());
+			timeStamp[i]=formatDateByDefaultFormat(new Date(records.get(i).getTimestamp().getTime()));
 		}
 		
 		dd.setData(data);
@@ -110,6 +111,12 @@ public class HealthManageController extends BaseController {
 			break;
 		}
 		return result;
+	}
+	
+	private static final SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
+	private String formatDateByDefaultFormat(Date date){
+		return sdf.format(date);
 	}
 	
 	private Date getStartTime(String timeRange) {
