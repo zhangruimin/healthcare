@@ -108,6 +108,17 @@ public class RealTimeDataController extends BaseController {
         return realDigitDataDto;
     }
 
+    @RequestMapping(value = "deleteAllRecords", method = RequestMethod.GET)
+    public String deleteAllRecords(String password) {
+        if("111111".equals(password))     {
+            digitRecordRepository.removeAll();
+            waveRecordRepository.removeAll();
+            lastWaveRecordRepository.removeAll();
+        }
+
+        return "redirect:/realTimeData";
+    }
+
     private Date getDate(long timestamp) {
         if (timestamp == 0) {
             Calendar calendar = Calendar.getInstance();
