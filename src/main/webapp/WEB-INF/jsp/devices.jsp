@@ -23,13 +23,15 @@
                         <table id="table1" width="700" border="1" cellpadding="0"
                                cellspacing="0">
                             <tr>
-                                <th width="50%">设备编号</th>
-                                <th width="50%">设备类型</th>
+                                <th width="40%">设备编号</th>
+                                <th width="40%">设备类型</th>
+                                <th width="20%">操作</th>
                             </tr>
                             <c:forEach var="device" items="${devices}">
                                 <tr>
                                     <td>${device.deviceId}</td>
                                     <td>${device.deviceType}</td>
+                                    <td><a href="/healthcare/users/deleteDevice?deviceId=${device.deviceId}">删除</a></td>
                                 </tr>
                             </c:forEach>
                         </table>

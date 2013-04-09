@@ -132,7 +132,7 @@ $(function () {
 
     waveDiagramDrawer({
         updateInterval: 40,
-        marginPoints : 10,
+        marginPoints : 3,
         totalPoints : 60,
         waveType : "BO",
         place:"#bloodoxygendiogram"

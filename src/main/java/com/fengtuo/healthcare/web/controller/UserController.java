@@ -47,6 +47,14 @@ public class UserController extends BaseController{
         return "redirect:devices?userId="+currentUser.getId();
     }
 
+    @RequestMapping(value = "deleteDevice",method= RequestMethod.GET)
+    public String deleteDevice(HttpSession session, @RequestParam String deviceId) {
+        User currentUser = userRepository.findById(getCurrentUser(session).getId());
+        currentUser.removeDevice(deviceId);
+        userRepository.save(currentUser);
+        return "redirect:devices?userId="+currentUser.getId();
+    }
+
     @RequestMapping(value = "createUser",method= RequestMethod.GET)
     public @ResponseBody
     String createUser(ModelMap model, @RequestParam String userId, @RequestParam String userName,@RequestParam String password) {

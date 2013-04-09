@@ -3,6 +3,7 @@ package com.fengtuo.healthcare.model;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -125,5 +126,14 @@ public class User {
 
     public void addDevice(Device device) {
         this.devices.add(device);
+    }
+
+    public void removeDevice(String deviceId) {
+        for( Iterator<Device> iterator = devices.iterator();iterator.hasNext();){
+            Device current = iterator.next();
+            if(current.getDeviceId().equals(deviceId)){
+                iterator.remove();
+            }
+        }
     }
 }
