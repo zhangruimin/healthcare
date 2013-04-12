@@ -45,7 +45,7 @@ function dataFetcher(time, dataType,place){
 			  }
             },
             error: function () {
-                alert("Failed to get data");
+               // alert("Failed to get data");
             }
             }
         );

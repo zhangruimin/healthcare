@@ -29,7 +29,7 @@ function realTimeDataFetcher(totalPoints, waveType){
             },
             timeout: 30000,
             error: function () {
-                alert("Failed to get data");
+                //alert("Failed to get data");
             }
             }
         );

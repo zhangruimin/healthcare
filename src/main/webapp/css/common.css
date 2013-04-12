@@ -240,10 +240,12 @@ ul.nav-list li a span{
 
 .container-outer table{
     border: solid 1px;
+    font-size: 15px;
 }
 
 .container-outer table td{
     border: solid 1px;
+    padding: 2px 4px;
 }
 
 .hero-unit #header{

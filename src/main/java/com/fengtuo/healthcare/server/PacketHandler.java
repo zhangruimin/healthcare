@@ -2,8 +2,6 @@ package com.fengtuo.healthcare.server;
 
 import com.fengtuo.healthcare.model.Packet;
 import com.fengtuo.healthcare.repository.PacketRepository;
-import com.fengtuo.healthcare.service.PacketService;
-import org.apache.mina.core.service.IoHandler;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
@@ -30,7 +28,6 @@ public class PacketHandler extends IoHandlerAdapter {
     @Override
     public void messageReceived(IoSession session, Object message) throws Exception {
         Packet packet = (Packet) message;
-        System.out.println(packet.getWaveRecords().size());
         packetRepository.save(packet);
     }
 
