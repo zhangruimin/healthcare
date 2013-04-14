@@ -28,7 +28,7 @@ public class DigitRecord extends HealthRecord {
     }
 
     public String getDataString() {
-        if (DataType.TEMP1.equals(getDataType())) {
+        if (DataType.TEMP1.equals(getDataType())||DataType.BS.equals(getDataType())) {
             return NumUtils.toInt(getData()[0]) + "." + NumUtils.toInt(getData()[1]);
         } else {
             return String.valueOf(NumUtils.toInt(getData()[0]));
