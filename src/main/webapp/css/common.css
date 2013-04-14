@@ -346,6 +346,7 @@ ul.nav-list li a span {
 
 #content .time-range a:hover {
 	text-decoration: none;
+    cursor:pointer;
 }
 
 #content {
