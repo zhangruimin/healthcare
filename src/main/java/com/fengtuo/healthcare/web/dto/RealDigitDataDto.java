@@ -11,6 +11,21 @@ public class RealDigitDataDto {
     private String temperature;
     private String heartRate;
     private String bloodOxygen;
+    private String PR;
+    private String resp;
+    private String bs;
+
+    public String getBs() {
+        return bs;
+    }
+
+    public String getResp() {
+        return resp;
+    }
+
+    public String getPR() {
+        return PR;
+    }
 
     public String getTemperature() {
         return temperature;
@@ -34,5 +49,17 @@ public class RealDigitDataDto {
 
     public void setBloodOxygen(String bloodOxygen) {
         this.bloodOxygen = bloodOxygen;
+    }
+
+    public void setPR(String PR) {
+        this.PR = PR;
+    }
+
+    public void setResp(String resp) {
+        this.resp = resp;
+    }
+
+    public void setBs(String bs) {
+        this.bs = bs;
     }
 }

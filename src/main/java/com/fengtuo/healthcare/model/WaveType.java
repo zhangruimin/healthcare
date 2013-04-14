@@ -27,8 +27,16 @@ public enum WaveType {
             case ECG:
                 return (byte)150;
             case BO:
-                return 20;
+                return 30;
         }
         return 0;
+    }
+
+    public static int getBatchNum(WaveType type) {
+        switch (type){
+            case BREATH:
+                return 4;
+        }
+        return 2;
     }
 }

@@ -35,7 +35,7 @@
                                     <li><a href="#tabs-3">血氧</a></li>
                                 </ul>
                                 <div id="tabs-1">
-                                    <table class="query-result" id="table1" width="700" border="1" cellpadding="0"
+                                    <table class="query-result" id="table1" width="700" border="0" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
                                             <th width="20%">硬件编号</th>
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div id="tabs-2">
-                                    <table class="query-result" id="table2" width="700" border="1" cellpadding="0"
+                                    <table class="query-result" id="table2" width="700" border="0" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
                                             <th width="20%">硬件编号</th>
@@ -70,7 +70,7 @@
                                     </table>
                                 </div>
                                 <div id="tabs-3">
-                                    <table class="query-result" id="table3" width="700" border="1" cellpadding="0"
+                                    <table class="query-result" id="table3" width="700" border="0" cellpadding="0"
                                            cellspacing="0">
                                         <tr>
                                             <th width="20%">硬件编号</th>

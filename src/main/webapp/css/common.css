@@ -1,7 +1,8 @@
 body {
-	background-color: #f7f3ef;
-	font-family: 微软雅黑;
+    background-color: #f7f3ef;
+    font-family: 黑体;
 }
+
 
 .clear {
 	clear: both;
@@ -400,56 +401,155 @@ dl dd {
 	font-size: 15px;
 }
 
-#digit-real-time-data {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	width: 210px;
-	height: 500px;
-	font-size: 20px;
+#digit-real-time-data{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    width: 210px;
+    height: 500px;
+    font-size: 20px;
 }
 
-#real-time-container {
-	position: relative;
+#digit-real-time-data{
+    position: absolute;
+    top:0px;
+    right: 0px;
+    width: 210px;
+    height: 500px;
+    font-size: 20px;
 }
 
-#electrocardiogram {
-	margin: 10px;
-	width: 500px;
-	height: 150px;
+#real-time-container{
+    position: relative;
 }
 
-#ECG-wave,#SpO2-wave {
-	position: relative;
-	margin: 10px;
+#electrocardiogram{
+    margin: 40px 10px 10px 10px;
+    width:500px;
+    height:170px;
 }
 
-#bloodoxygendiogram {
-	margin: 10px;
-	width: 500px;
-	height: 150px;
+#bloodoxygendiogram,#RESPdiogram{
+    margin: 40px 10px 10px 10px;
+    width:500px;
+    height:125px;
 }
 
-#SpO2-real-time {
-	float: left;
-	margin: 10px 10px;
-	color: #f17163;
+.wave{
+    position: relative;
+    margin:10px;
 }
 
-#RPbpm-real-time {
-	float: left;
-	margin: 10px 10px;
-	color: #31ae6b;
+#HR-real-time{
+    /*float:left;*/
+    margin: 10px 10px 0 10px;
+    color: #52b242;
+    height: 100px;
 }
 
-#RESP-real-time {
-	float: left;
-	margin: 10px 10px;
-	color: #5aaade;
+#SpO2-real-time{
+    color:#ff7163;
 }
 
-#TEMP-real-time {
-	float: left;
-	margin: 10px 10px;
-	color: #ffb65a;
+#PR-real-time{
+    color: #52b242;
 }
+
+#SpO2-real-time, #PR-real-time{
+    float:left;
+    height: 100px;
+    width:100px;
+}
+
+#RPbpm-real-time{
+    float:left;
+    margin: 10px 10px;
+    color: #31ae6b;
+}
+#RESP-real-time{
+    float:left;
+    margin: 10px 10px;
+    color:#5aaade;
+}
+#TEMP-real-time{
+    float:left;
+    margin: 10px 10px;
+    color:#ffb65a;
+}
+
+#GLU-real-time{
+    float:left;
+    margin: 10px 10px;
+    color:#ffb65a;
+}
+
+.wave-label{
+    position:absolute;
+    left:25px;
+    top:0px;
+    font-size: 16px;
+}
+
+.tickLabel{
+    display: none;
+}
+
+.wave .right-border{
+    border-right: 1px solid #CECBCE;
+    height: 117px;
+    left: 506px;
+    position: absolute;
+    top: 4px;
+    width: 0;
+}
+
+.wave .horizontal-bar{
+    border-bottom: 3px solid #9E9B9E;
+    bottom: -20px;
+    height: 0;
+    left: 0;
+    position: absolute;
+    width: 525px;
+}
+
+#ECG-wave.wave .right-border{
+    height: 162px;
+}
+
+#real-time-container .vertical-bar {
+    border-left: 3px solid #9E9B9E;
+    height: 529px;
+    left: 551px;
+    position: absolute;
+    top: -17px;
+    width: 0;
+}
+
+#digit-real-time-data .real-time-data{
+    width:60px;
+    height: 60px;
+    font-size: 60px;
+    line-height: 60px;
+    margin-left: 40px;
+}
+
+#digit-real-time-data .related-data-container{
+    height: 100px;
+}
+
+#digit-real-time-data .related-data-container .real-time-data{
+    margin-left: 10px;
+    font-size: 40px;
+}
+
+#NIBP-real-time{
+    height: 100px;
+    color: #9c9e9c;
+}
+
+#digit-real-time-data #NIBP-real-time-data.real-time-data{
+    margin-left: 0px;
+    width:200px;
+    font-size: 30px;
+}
+
