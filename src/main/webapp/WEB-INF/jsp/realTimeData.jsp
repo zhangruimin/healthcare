@@ -17,6 +17,8 @@
                     <div id="header">
                         <h2>实施监护</h2>
                     </div>
+                     <div class="header-bottom"></div>
+                     
                     <div id="real-time-container">
                         <div id="digit-real-time-data">
                             <div id="HR-real-time">
