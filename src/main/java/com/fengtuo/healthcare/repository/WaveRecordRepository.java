@@ -48,15 +48,15 @@ public class WaveRecordRepository extends RepositoryBase<WaveRecord> {
     }
 
     public void deleteRecordsBefore(String userId, Date date) {
-//        Query query = new Query();
-//        query.addCriteria(Criteria.where("timestamp").lt(date));
-//        query.addCriteria(Criteria.where("userId").is(userId));
-//        List<WaveRecord> waveRecords = mongoOperations.find(query, WaveRecord.class, COLLECTION);
-//        if(waveRecords!=null){
-//            for(WaveRecord waveRecord:waveRecords){
-//                mongoOperations.remove(waveRecord,COLLECTION);
-//            }
-//        }
+        Query query = new Query();
+        query.addCriteria(Criteria.where("timestamp").lt(date));
+        query.addCriteria(Criteria.where("userId").is(userId));
+        List<WaveRecord> waveRecords = mongoOperations.find(query, WaveRecord.class, COLLECTION);
+        if(waveRecords!=null){
+            for(WaveRecord waveRecord:waveRecords){
+                mongoOperations.remove(waveRecord);
+            }
+        }
 //        mongoOperations.findAndRemove(query, WaveRecord.class, COLLECTION);
     }
 }

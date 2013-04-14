@@ -1,5 +1,7 @@
 package com.fengtuo.healthcare.model;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -9,6 +11,9 @@ package com.fengtuo.healthcare.model;
  */
 public class WaveRecord extends HealthRecord {
     private WaveType waveType;
+    
+    @Id
+    private String id;
 
     public WaveRecord(String deviceId) {
         super(deviceId);
@@ -23,5 +28,13 @@ public class WaveRecord extends HealthRecord {
 
     public void setWaveType(WaveType waveType) {
         this.waveType = waveType;
+    }
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
