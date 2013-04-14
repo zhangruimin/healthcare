@@ -26,6 +26,7 @@
 						<div id="header">
 							<h2>健康管理</h2>
 						</div>
+						 <div class="header-bottom"></div>
 
 						<div id="content">
                             <div class="time-range">

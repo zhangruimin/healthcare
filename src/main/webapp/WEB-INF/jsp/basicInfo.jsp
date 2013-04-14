@@ -17,6 +17,7 @@
                     <div id="header">
                         <h2>基本信息</h2>
                     </div>
+                     <div class="header-bottom"></div>
 
                     <div id="content">
                         <form method="post" action="/healthcare/basicInfo">

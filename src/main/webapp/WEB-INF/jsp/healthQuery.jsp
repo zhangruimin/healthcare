@@ -18,6 +18,7 @@
                     <div id="header">
                         <h2>健康查询</h2>
                     </div>
+            <div class="header-bottom"></div>
 
                     <div id="content">
                         <div class="time-range">
