@@ -64,7 +64,9 @@ public class RealTimeDataController extends BaseController {
         if (waveRecords.size() < BATCH_NUM) {
             return WaveRecordDto.from(getEmptyWaveRecords(date, waveType));
         }
-        return WaveRecordDto.from(waveRecords);
+        WaveRecordDto result = WaveRecordDto.from(waveRecords);
+        waveRecordRepository.deleteRecordsBefore(userId, getDateBeforeSeconds(date, 10));
+        return result;
     }
 
     private boolean isNoDataReceived(String userId) {
@@ -77,7 +79,11 @@ public class RealTimeDataController extends BaseController {
         List<WaveRecord> records = new ArrayList<WaveRecord>();
         WaveRecord waveRecord = new WaveRecord();
         waveRecord.setTimestamp(date);
-        waveRecord.setData(new byte[WaveType.getDataByteNumber(waveType)]);
+        byte[] data = new byte[WaveType.getDataByteNumber(waveType)];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = WaveType.getDefaultValue(waveType);
+        }
+        waveRecord.setData(data);
         for (int i = 0; i < BATCH_NUM; i++) {
             records.add(waveRecord);
         }
@@ -110,7 +116,7 @@ public class RealTimeDataController extends BaseController {
 
     @RequestMapping(value = "deleteAllRecords", method = RequestMethod.GET)
     public String deleteAllRecords(String password) {
-        if("111111".equals(password))     {
+        if ("111111".equals(password)) {
             digitRecordRepository.removeAll();
             waveRecordRepository.removeAll();
             lastWaveRecordRepository.removeAll();
@@ -126,6 +132,13 @@ public class RealTimeDataController extends BaseController {
             return calendar.getTime();
         }
         return new Date(timestamp);
+    }
+
+    private Date getDateBeforeSeconds(Date date, int seconds) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.SECOND, -seconds);
+        return calendar.getTime();
     }
 
 }

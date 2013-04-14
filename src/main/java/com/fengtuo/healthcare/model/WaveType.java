@@ -21,4 +21,14 @@ public enum WaveType {
         }
         return 0;
     }
+
+    public static byte getDefaultValue(WaveType type) {
+        switch (type){
+            case ECG:
+                return (byte)150;
+            case BO:
+                return 20;
+        }
+        return 0;
+    }
 }

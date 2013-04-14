@@ -1,9 +1,8 @@
-function realTimeDataFetcher(totalPoints, waveType){
+function realTimeDataFetcher(totalPoints, waveType, defaultValue){
     var stubData =[], currentData = [], waveRecord;
-    var initValue = 0, isDataReady = false;
     function init(){
         while (stubData.length < totalPoints) {
-            stubData.push(initValue);
+            stubData.push(defaultValue);
         }
         refreshData();
     }
@@ -46,7 +45,7 @@ function realTimeDataFetcher(totalPoints, waveType){
 function waveDiagramDrawer(settings, plotOptions) {
     return {
         draw: function () {
-            var fetcher = realTimeDataFetcher(settings.totalPoints, settings.waveType);
+            var fetcher = realTimeDataFetcher(settings.totalPoints, settings.waveType, settings.defaultValue);
             var currentData = fetcher.getNextPacket();
             var plot = $.plot($(settings.place), [ currentData ], plotOptions);
 
@@ -121,12 +120,14 @@ $(function () {
             marginPoints : 10,
             totalPoints : 240,
             waveType : "ECG",
-            place:"#electrocardiogram"
+            place:"#electrocardiogram",
+            defaultValue:150
         },
         {
             series: { shadowSize: 0,color:"#52b242" },
             yaxis: { min: 0, max: 300},
-            xaxis: { show: false }
+            xaxis: { show: true },
+            grid:{borderWidth:0}
         }
     ).draw();
 
@@ -135,12 +136,14 @@ $(function () {
         marginPoints : 3,
         totalPoints : 60,
         waveType : "BO",
-        place:"#bloodoxygendiogram"
+        place:"#bloodoxygendiogram",
+        defaultValue:20
     },
         {
             series: { shadowSize: 0, color:"#ff7163" },
             yaxis: { min: 20, max: 100},
-            xaxis: { show: false } ,
+            xaxis: { show: true } ,
+            grid:{borderWidth:0},
             legend:{show:true}
         }
     ).draw();
