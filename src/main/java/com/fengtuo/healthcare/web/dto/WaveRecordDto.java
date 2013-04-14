@@ -35,11 +35,13 @@ public class WaveRecordDto {
     }
 
     public static WaveRecordDto from(List<WaveRecord> waveRecords) {
-        WaveRecord first = waveRecords.get(0);
-        WaveRecord second = waveRecords.get(1);
+        byte[] data = new byte[0];
+        for (WaveRecord waveRecord : waveRecords) {
+            data = ArrayUtils.addAll(data, waveRecord.getData());
+        }
         WaveRecordDto waveRecordDto = new WaveRecordDto();
-        waveRecordDto.data = toIntArray(ArrayUtils.addAll(first.getData(), second.getData()));
-        waveRecordDto.timestamp = second.getTimestamp();
+        waveRecordDto.data = toIntArray(data);
+        waveRecordDto.timestamp = waveRecords.get(waveRecords.size()-1).getTimestamp();
         return waveRecordDto;
     }
 

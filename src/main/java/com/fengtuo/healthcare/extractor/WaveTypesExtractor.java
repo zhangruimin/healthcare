@@ -1,6 +1,5 @@
 package com.fengtuo.healthcare.extractor;
 
-import com.fengtuo.healthcare.model.DataType;
 import com.fengtuo.healthcare.model.WaveType;
 
 import java.util.ArrayList;
@@ -30,6 +29,10 @@ public class WaveTypesExtractor {
 
         if ((waveTypeByte & 2) != 0) {
             types.add(WaveType.BO);
+        }
+
+        if ((waveTypeByte & 4) != 0) {
+            types.add(WaveType.BREATH);
         }
 
         waveTypes = types.toArray(new WaveType[0]);

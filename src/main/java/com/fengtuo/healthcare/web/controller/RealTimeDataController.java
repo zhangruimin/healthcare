@@ -30,7 +30,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/realTimeData")
 public class RealTimeDataController extends BaseController {
-    private static final int BATCH_NUM = 2;
     private static final String REAL_TIME_DATA = "realTimeData";
     private static final int WAIT_TIME = 5;
     private final WaveRecordRepository waveRecordRepository;
@@ -58,11 +57,11 @@ public class RealTimeDataController extends BaseController {
         Date date = getDate(timestamp);
         String userId = getCurrentUser(session).getId();
         if (isNoDataReceived(userId)) {
-            return WaveRecordDto.from(getEmptyWaveRecords(date, waveType));
+            return WaveRecordDto.from(getEmptyWaveRecords(date, waveType, WaveType.getBatchNum(waveType)));
         }
-        List<WaveRecord> waveRecords = waveRecordRepository.nextBatchRecord(userId, date, waveType, BATCH_NUM);
-        if (waveRecords.size() < BATCH_NUM) {
-            return WaveRecordDto.from(getEmptyWaveRecords(date, waveType));
+        List<WaveRecord> waveRecords = waveRecordRepository.nextBatchRecord(userId, date, waveType, WaveType.getBatchNum(waveType));
+        if (waveRecords.size() < WaveType.getBatchNum(waveType)) {
+            return WaveRecordDto.from(getEmptyWaveRecords(date, waveType, WaveType.getBatchNum(waveType)));
         }
         WaveRecordDto result = WaveRecordDto.from(waveRecords);
         waveRecordRepository.deleteRecordsBefore(userId, getDateBeforeSeconds(date, 10));
@@ -75,7 +74,7 @@ public class RealTimeDataController extends BaseController {
                 || new Date().getTime() - lastWaveRecord.getTimestamp().getTime() > WAIT_TIME * 1000;
     }
 
-    private List<WaveRecord> getEmptyWaveRecords(Date date, WaveType waveType) {
+    private List<WaveRecord> getEmptyWaveRecords(Date date, WaveType waveType, int batchNum) {
         List<WaveRecord> records = new ArrayList<WaveRecord>();
         WaveRecord waveRecord = new WaveRecord();
         waveRecord.setTimestamp(date);
@@ -84,7 +83,7 @@ public class RealTimeDataController extends BaseController {
             data[i] = WaveType.getDefaultValue(waveType);
         }
         waveRecord.setData(data);
-        for (int i = 0; i < BATCH_NUM; i++) {
+        for (int i = 0; i < batchNum; i++) {
             records.add(waveRecord);
         }
         return records;
@@ -100,7 +99,10 @@ public class RealTimeDataController extends BaseController {
         Date time = calendar.getTime();
         DigitRecord lastTemperature = digitRecordRepository.findLastRecordAfter(userId, DataType.TEMP1, time);
         DigitRecord lastHeartRate = digitRecordRepository.findLastRecordAfter(userId, DataType.HR, time);
+        DigitRecord pr = digitRecordRepository.findLastRecordAfter(userId, DataType.PR, time);
         DigitRecord lastBloodOxygen = digitRecordRepository.findLastRecordAfter(userId, DataType.SPO2, time);
+        DigitRecord resp = digitRecordRepository.findLastRecordAfter(userId, DataType.RESP, time);
+        DigitRecord bs = digitRecordRepository.findLastRecordAfter(userId, DataType.BS, time);
         RealDigitDataDto realDigitDataDto = new RealDigitDataDto();
         if (lastTemperature != null) {
             realDigitDataDto.setTemperature(lastTemperature.getDataString());
@@ -108,6 +110,19 @@ public class RealTimeDataController extends BaseController {
         if (lastHeartRate != null) {
             realDigitDataDto.setHeartRate(lastHeartRate.getDataString());
         }
+
+        if (pr != null) {
+            realDigitDataDto.setPR(pr.getDataString());
+        }
+
+        if (resp != null) {
+            realDigitDataDto.setResp(resp.getDataString());
+        }
+
+        if (bs != null) {
+            realDigitDataDto.setBs(bs.getDataString());
+        }
+
         if (lastBloodOxygen != null) {
             realDigitDataDto.setBloodOxygen(lastBloodOxygen.getDataString());
         }
