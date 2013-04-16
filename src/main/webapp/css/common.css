@@ -490,7 +490,7 @@ dl dd {
     font-size: 16px;
 }
 
-.tickLabel{
+#real-time-container .tickLabel{
     display: none;
 }
 

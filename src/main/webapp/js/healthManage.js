@@ -347,5 +347,4 @@ $(function() {
 			dataType : null
 		}).draw();
 	});
->>>>>>> deployed edition
 });
