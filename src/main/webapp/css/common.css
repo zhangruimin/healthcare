@@ -4,279 +4,279 @@ body {
 }
 
 .clear {
-	clear: both;
-	content: ".";
-	display: block;
-	height: 0;
-	visibility: hidden;
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
 }
 
 .selfClear:after {
-	clear: both;
-	content: ".";
-	display: block;
-	height: 0;
-	visibility: hidden;
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
 }
 
 .sidebar-nav {
-	padding: 9px 0;
+    padding: 9px 0;
 }
 
 @media ( max-width : 980px) {
-	/* Enable use of floated navbar text */
-	.navbar-text.pull-right {
-		float: none;
-		padding-left: 5px;
-		padding-right: 5px;
-	}
+    /* Enable use of floated navbar text */
+    .navbar-text.pull-right {
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }
 
 .container-outer {
-	width: 1000px;
-	margin: 0 auto;
-	min-height: 100%;
-	background-color: #FFFFFF;
-	position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    min-height: 100%;
+    background-color: #FFFFFF;
+    position: relative;
 }
 
 #footer {
-	background: none repeat scroll 0 0 #F5F4F0;
-	border-top: 1px dotted #DDDDDD;
-	bottom: 0;
-	height: 60px;
-	margin: 4px 4px 0 4px;
-	width: 992px;
-	text-align: center;
+    background: none repeat scroll 0 0 #F5F4F0;
+    border-top: 1px dotted #DDDDDD;
+    bottom: 0;
+    height: 60px;
+    margin: 4px 4px 0 4px;
+    width: 992px;
+    text-align: center;
 }
 
 #footer-register {
-	background: none repeat scroll 0 0 #F5F4F0;
-	border-top: 1px dotted #DDDDDD;
-	bottom: 0;
-	height: 60px;
-	margin: 4px 4px 0 4px;
-	width: 992px;
+    background: none repeat scroll 0 0 #F5F4F0;
+    border-top: 1px dotted #DDDDDD;
+    bottom: 0;
+    height: 60px;
+    margin: 4px 4px 0 4px;
+    width: 992px;
 }
 
 .navbar {
-	background: url("../images/header.bmp") no-repeat scroll -100px 0
-		transparent;
-	position: relative;
-	width: 1000px;
-	height: 107px;
-	margin-bottom: 0;
+    background: url("../images/header.bmp") no-repeat scroll -100px 0
+    transparent;
+    position: relative;
+    width: 1000px;
+    height: 107px;
+    margin-bottom: 0;
 }
 
 .logo {
-	background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
-	width: 281px;
-	height: 90px;
-	position: absolute;
-	top: 10px;
-	left: 40px;
+    background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
+    width: 281px;
+    height: 90px;
+    position: absolute;
+    top: 10px;
+    left: 40px;
 }
 
 .logo-login {
-	left: 126px;
+    left: 126px;
 }
 
 .login-body {
-	position: relative;
-	height: 600px;
+    position: relative;
+    height: 600px;
 }
 
 .login-background {
-	background: url("../images/login_page_background.png") no-repeat scroll
-		0 0 transparent;
-	width: 651px;
-	height: 611px;
-	position: absolute;
-	right: 50px;
+    background: url("../images/login_page_background.png") no-repeat scroll
+    0 0 transparent;
+    width: 651px;
+    height: 611px;
+    position: absolute;
+    right: 50px;
 }
 
 .login-form-outer {
-	background: url("../images/login_bg.png") no-repeat scroll 0 0
-		transparent;
-	width: 561px;
-	height: 396px;
-	position: absolute;
-	top: 85px;
+    background: url("../images/login_bg.png") no-repeat scroll 0 0
+    transparent;
+    width: 561px;
+    height: 396px;
+    position: absolute;
+    top: 85px;
 }
 
 .login-form {
-	position: absolute;
-	left: 110px;
-	top: 85px;
-	width: 360px;
+    position: absolute;
+    left: 110px;
+    top: 85px;
+    width: 360px;
 }
 
 .login-label {
-	color: #0088ff;
-	font-size: 20px;
-	font-weight: bold;
-	position: absolute;
-	left: 86px;
-	top: 28px;
+    color: #0088ff;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 86px;
+    top: 28px;
 }
 
 #login-button {
-	background: url("../images/login_btn.png") no-repeat scroll 0 0
-		transparent;
-	width: 104px;
-	height: 52px;
-	border: none 0;
-	color: #0088FF;
-	font-size: 20px;
-	font-weight: bold;
+    background: url("../images/login_btn.png") no-repeat scroll 0 0
+    transparent;
+    width: 104px;
+    height: 52px;
+    border: none 0;
+    color: #0088FF;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #register-links {
-	font-size: 12px;
-	font-weight: bold;
-	position: absolute;
-	right: 70px;
-	bottom: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    right: 70px;
+    bottom: 28px;
 }
 
 #register-links a {
-	margin: 3px;
+    margin: 3px;
 }
 
 .login-form input {
-	border: 1px solid blue;
-	border-radius: 8px 8px 8px 8px;
-	width: 250px;
+    border: 1px solid blue;
+    border-radius: 8px 8px 8px 8px;
+    width: 250px;
 }
 
 .navbar-top {
-	font-size: 20px;
-	position: absolute;
-	width: 420px;
-	height: 30px;
-	right: 15px;
-	top: 20px;
-	color: #ffffff;
+    font-size: 20px;
+    position: absolute;
+    width: 420px;
+    height: 30px;
+    right: 15px;
+    top: 20px;
+    color: #ffffff;
 }
 
 .navbar-top a {
-	color: #ffffff;
+    color: #ffffff;
 }
 
 .navbar-top li {
-	float: left;
-	list-style: none outside none;
-	padding: 0 9px 0 9px;
-	border-left: 2px solid #D0D0D0;
+    float: left;
+    list-style: none outside none;
+    padding: 0 9px 0 9px;
+    border-left: 2px solid #D0D0D0;
 }
 
 .navbar-top li.first {
-	border-left: 0 none;
+    border-left: 0 none;
 }
 
 .container-fluid {
-	background-color: #efebef;
+    background-color: #efebef;
 }
 
 .avatar {
-	background: url("../images/avatar.png") no-repeat scroll 0 0 transparent;
-	position: relative;
-	width: 183px;
-	height: 226px;
-	left: 7px;
-	top: 0;
+    background: url("../images/avatar.png") no-repeat scroll 0 0 transparent;
+    position: relative;
+    width: 183px;
+    height: 226px;
+    left: 7px;
+    top: 0;
 }
 
 .sidebar-split {
-	background: url("../images/sidebar-splitter.png") no-repeat scroll 0 0
-		transparent;
-	position: relative;
-	width: 211px;
-	height: 43px;
-	left: -12px;
-	top: 0;
+    background: url("../images/sidebar-splitter.png") no-repeat scroll 0 0
+    transparent;
+    position: relative;
+    width: 211px;
+    height: 43px;
+    left: -12px;
+    top: 0;
 }
 
 ul.nav-list li a {
-	background: url("../images/nav-btn.png") no-repeat scroll 0 0
-		transparent;
-	width: 162px;
-	height: 61px;
-	padding: 0 0;
-	margin: 0 0;
-	position: relative;
+    background: url("../images/nav-btn.png") no-repeat scroll 0 0
+    transparent;
+    width: 162px;
+    height: 61px;
+    padding: 0 0;
+    margin: 0 0;
+    position: relative;
 }
 
 ul.nav-list li a span {
-	position: absolute;
-	left: 38px;
-	top: 20px;
-	font-size: 20px;
+    position: absolute;
+    left: 38px;
+    top: 20px;
+    font-size: 20px;
 }
 
 .row-fluid .span9 {
-	border-left: 2px solid #bdbebd;
-	width: 80%;
-	background-color: #ffffff;
-	min-height: 800px;
+    border-left: 2px solid #bdbebd;
+    width: 80%;
+    background-color: #ffffff;
+    min-height: 800px;
 }
 
 .user-info-form dl dt {
-	float: left;
-	font-size: 15px;
-	height: 36px;
-	line-height: 30px;
-	text-align: right;
-	width: 130px;
-	margin-right: 5px;
+    float: left;
+    font-size: 15px;
+    height: 36px;
+    line-height: 30px;
+    text-align: right;
+    width: 130px;
+    margin-right: 5px;
 }
 
 .user-info-form dl dd.gender {
-	height: 36px;
-	line-height: 28px;
+    height: 36px;
+    line-height: 28px;
 }
 
 .user-info-form dl dd.gender span {
-	float: left;
-	font-size: 15px;
-	height: 26px;
-	line-height: 26px;
-	text-align: right;
-	width: 75px;
+    float: left;
+    font-size: 15px;
+    height: 26px;
+    line-height: 26px;
+    text-align: right;
+    width: 75px;
 }
 
 #register {
-	background: url("../images/login_btn.png") no-repeat scroll 0 0
-		transparent;
-	width: 104px;
-	height: 52px;
-	border: none 0;
-	color: #0088FF;
-	font-size: 18px;
-	margin-left: 200px;
-	text-align: center;
+    background: url("../images/login_btn.png") no-repeat scroll 0 0
+    transparent;
+    width: 104px;
+    height: 52px;
+    border: none 0;
+    color: #0088FF;
+    font-size: 18px;
+    margin-left: 200px;
+    text-align: center;
 }
 
 .container-outer table {
-	border: solid 1px;
-	font-size: 15px;
+    border: solid 1px;
+    font-size: 15px;
 }
 
 .container-outer table td {
-	border: solid 1px;
-	padding: 2px 4px;
+    border: solid 1px;
+    padding: 2px 4px;
 }
 
 .hero-unit #header {
-	background: url("../images/h2.png") no-repeat scroll 0 0 transparent;
-	height: 36px;
-	padding-left: 34px;
-	width: 800px;
+    background: url("../images/h2.png") no-repeat scroll 0 0 transparent;
+    height: 36px;
+    padding-left: 34px;
+    width: 800px;
 }
 
 .hero-unit #header h2 {
-	line-height: 36px;
-	font-size: 20px;
+    line-height: 36px;
+    font-size: 20px;
 }
 
 .header-bottom {
@@ -289,116 +289,116 @@ ul.nav-list li a span {
 }
 
 #register-form {
-	position: relative;
-	height: 560px;
+    position: relative;
+    height: 560px;
 }
 
 #register-form-bg {
-	background: url("../images/register_bg.png") no-repeat scroll 0 0
-		transparent;
-	width: 535px;
-	height: 596px;
-	position: absolute;
-	right: -20px;
-	top: -80px;
+    background: url("../images/register_bg.png") no-repeat scroll 0 0
+    transparent;
+    width: 535px;
+    height: 596px;
+    position: absolute;
+    right: -20px;
+    top: -80px;
 }
 
 #register-left-bg {
-	background: url("../images/register_left_bg.png") no-repeat scroll 0 0
-		transparent;
-	width: 535px;
-	height: 596px;
-	position: absolute;
-	right: 490px;
-	top: 0;
-	left: 1px;
+    background: url("../images/register_left_bg.png") no-repeat scroll 0 0
+    transparent;
+    width: 535px;
+    height: 596px;
+    position: absolute;
+    right: 490px;
+    top: 0;
+    left: 1px;
 }
 
 .register-note {
-	background: url("../images/note.png") no-repeat scroll 0 0 transparent;
-	height: 33px;
-	width: 209px;
-	position: relative;
-	top: -5px;
-	bottom: 0;
-	float: right;
+    background: url("../images/note.png") no-repeat scroll 0 0 transparent;
+    height: 33px;
+    width: 209px;
+    position: relative;
+    top: -5px;
+    bottom: 0;
+    float: right;
 }
 
 .register-hint {
-	height: 33px;
-	left: 30px;
-	position: relative;
-	right: 490px;
-	top: 10px;
-	width: 170px;
+    height: 33px;
+    left: 30px;
+    position: relative;
+    right: 490px;
+    top: 10px;
+    width: 170px;
 }
 
 #content .time-range {
-	float: right;
+    float: right;
 }
 
 #content .time-range a {
-	margin: 0 5px;
-	font-size: 15px;
-	font-weight: bold;
+    margin: 0 5px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 #content .time-range a:hover {
-	text-decoration: none;
+    text-decoration: none;
     cursor:pointer;
 }
 
 #content {
-	padding: 10px;
+    padding: 10px;
 }
 
 .add_devices {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .query-result td {
-	padding: 2px 4px;
+    padding: 2px 4px;
 }
 
 dl dt {
-	float: left;
-	font-size: 15px;
-	height: 36px;
-	line-height: 30px;
-	margin-right: 25px;
-	text-align: right;
-	width: 130px;
+    float: left;
+    font-size: 15px;
+    height: 36px;
+    line-height: 30px;
+    margin-right: 25px;
+    text-align: right;
+    width: 130px;
 }
 
 dl dd {
-	min-width: 2px;
-	min-height: 2px;
+    min-width: 2px;
+    min-height: 2px;
 }
 
 .health-archive table {
-	width: 95%;
-	border: none 0;
-	font-size: 15px;
+    width: 95%;
+    border: none 0;
+    font-size: 15px;
 }
 
 .health-archive table tr.with-separator {
-	border-bottom: solid 2px #d6d7d6;
+    border-bottom: solid 2px #d6d7d6;
 }
 
 .health-archive table tr td {
-	padding: 2px 4px;
-	border: none 0;
+    padding: 2px 4px;
+    border: none 0;
 }
 
 .health-archive table tr td:first-child {
-	width: 20%;
-	text-align: right;
+    width: 20%;
+    text-align: right;
 }
 
 .health-query table {
-	width: 95%;
-	border: none 0;
-	font-size: 15px;
+    width: 95%;
+    border: none 0;
+    font-size: 15px;
 }
 
 #digit-real-time-data{

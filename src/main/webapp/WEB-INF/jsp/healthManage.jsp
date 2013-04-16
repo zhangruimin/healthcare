@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>健康管理</title>
- <%@include file="common/staticRef.jsp" %>
+ <%@include file="common/staticRef4healthmange.jsp" %>
  <link rel="stylesheet" href="css/bootstrap/bootstrap-new-examples.css"></link>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
 <script type="text/javascript" src="js/lib/jquery-c.js"></script>
@@ -41,6 +41,10 @@
 										<li><a href="#tabs-1">体温</a></li>
 										<li><a href="#tabs-2">心率</a></li>
 										<li><a href="#tabs-3">血氧</a></li>
+										<li><a href="#tabs-4">呼吸率</a></li>
+										<li><a href="#tabs-5">脉率</a></li>
+										<li><a href="#tabs-6">血压</a></li>
+										<li><a href="#tabs-7">血糖</a></li>
 									</ul>
 									<div id="tabs-1">
 										<div class="demo-container">
@@ -53,11 +57,37 @@
 											<div id="placeholder2" class="demo-placeholder"></div>
 										</div>
 									</div>
+									
 									<div id="tabs-3">
 										<div class="demo-container">
 											<div id="placeholder3" class="demo-placeholder"></div>
 										</div>
 									</div>
+									
+									<div id="tabs-4">
+										<div class="demo-container">
+											<div id="placeholder4" class="demo-placeholder"></div>
+										</div>
+									</div>
+
+									<div id="tabs-5">
+										<div class="demo-container">
+											<div id="placeholder5" class="demo-placeholder"></div>
+										</div>
+									</div>
+									
+									<div id="tabs-6">
+										<div class="demo-container">
+											<div id="placeholder6" class="demo-placeholder"></div>
+										</div>
+									</div>
+									
+									<div id="tabs-7">
+										<div class="demo-container">
+											<div id="placeholder7" class="demo-placeholder"></div>
+										</div>
+									</div>
+									
 								</div>
 
 							</div>

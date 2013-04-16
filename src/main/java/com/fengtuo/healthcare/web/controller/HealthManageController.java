@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
-import javax.xml.datatype.DatatypeFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fengtuo.healthcare.model.DataType;
 import com.fengtuo.healthcare.model.DigitRecord;
-import com.fengtuo.healthcare.model.WaveType;
 import com.fengtuo.healthcare.repository.DigitRecordRepository;
 import com.fengtuo.healthcare.web.dto.HealthManageDto;
 
@@ -59,10 +57,22 @@ public class HealthManageController extends BaseController {
 		List<DigitRecord> SPO2Records = digitRecordRepository.find(userId,
 				DataType.SPO2, startTime);
 		
+		//ºôÎüÂÊ
+        List<DigitRecord> RESPRecords = digitRecordRepository.find(userId, DataType.RESP, startTime);
+        
+        //ÂöÂÊ
+        List<DigitRecord> PRRecords = digitRecordRepository.find(userId, DataType.PR, startTime);
+        
+        //ÑªÑ¹
+        List<DigitRecord> NIBPRecords = digitRecordRepository.find(userId, DataType.NIBP, startTime);
+        
+        //ÑªÌÇ
+        List<DigitRecord> BSRecords = digitRecordRepository.find(userId, DataType.BS, startTime);
+		
 		//temp2 represents default value
 		dataType=dataType!=null?dataType:DataType.TEMP2;
 		
-		return resultBuilder(dataType,temperatureRecords,HRRecords,SPO2Records);
+		return resultBuilder(dataType,temperatureRecords,HRRecords,SPO2Records,RESPRecords,PRRecords,NIBPRecords,BSRecords);
 
 //		if (null != dataType) {
 //			return convert(false);
@@ -90,7 +100,8 @@ public class HealthManageController extends BaseController {
 	
 	private List<HealthManageDto> resultBuilder(DataType dataType,
 			List<DigitRecord> temperatureRecords, List<DigitRecord> hRRecords,
-			List<DigitRecord> sPO2Records) {
+			List<DigitRecord> sPO2Records, List<DigitRecord> RESPRecords, List<DigitRecord> PRRecords,
+			List<DigitRecord> NIBPRecords, List<DigitRecord> BSRecords) {
 		
 		List<HealthManageDto> result=new ArrayList<HealthManageDto>();
 		
@@ -104,10 +115,26 @@ public class HealthManageController extends BaseController {
 		case SPO2:
 			result.add(retrieveOneHealthManageDto(sPO2Records));
 			break;
+		case RESP:
+			result.add(retrieveOneHealthManageDto(RESPRecords));
+			break;
+		case PR:
+			result.add(retrieveOneHealthManageDto(PRRecords));
+			break;
+		case NIBP:
+			result.add(retrieveOneHealthManageDto(NIBPRecords));
+			break;
+		case BS:
+			result.add(retrieveOneHealthManageDto(BSRecords));
+			break;
 		default:
 			result.add(retrieveOneHealthManageDto(temperatureRecords));	
 			result.add(retrieveOneHealthManageDto(hRRecords));
 			result.add(retrieveOneHealthManageDto(sPO2Records));
+			result.add(retrieveOneHealthManageDto(RESPRecords));
+			result.add(retrieveOneHealthManageDto(PRRecords));
+			result.add(retrieveOneHealthManageDto(NIBPRecords));
+			result.add(retrieveOneHealthManageDto(BSRecords));
 			break;
 		}
 		return result;
@@ -150,7 +177,7 @@ public class HealthManageController extends BaseController {
 		String[] timeStamp = new String[10];
 		for (int i = 0; i < 10; i++) {
 			data[i] = String.valueOf(rand.nextDouble());
-			timeStamp[i] = String.valueOf(System.currentTimeMillis() + i * 100);
+			timeStamp[i] = formatDateByDefaultFormat(new Date(System.currentTimeMillis()+i*10000));
 		}
 		dd.setData(data);
 		dd.setTimestamp(timeStamp);
@@ -165,6 +192,10 @@ public class HealthManageController extends BaseController {
 		if (!isMultiple) {
 			ddl.add(MockOneHealthManageDto());
 		} else {
+			ddl.add(MockOneHealthManageDto());
+			ddl.add(MockOneHealthManageDto());
+			ddl.add(MockOneHealthManageDto());
+			ddl.add(MockOneHealthManageDto());
 			ddl.add(MockOneHealthManageDto());
 			ddl.add(MockOneHealthManageDto());
 			ddl.add(MockOneHealthManageDto());

@@ -33,7 +33,12 @@
                                     <li><a href="#tabs-1">体温</a></li>
                                     <li><a href="#tabs-2">心率</a></li>
                                     <li><a href="#tabs-3">血氧</a></li>
+                                     <li><a href="#tabs-4">呼吸率</a></li>
+                                    <li><a href="#tabs-5">脉率</a></li>
+                                    <li><a href="#tabs-6">血压</a></li>
+                                     <li><a href="#tabs-7">血糖</a></li>
                                 </ul>
+                                
                                 <div id="tabs-1">
                                     <table class="query-result" id="table1" width="700" border="0" cellpadding="0"
                                            cellspacing="0">
@@ -44,9 +49,9 @@
                                         </tr>
                                         <c:forEach var="record" items="${temperatureRecords}">
                                             <tr>
-                                                <td>${record.deviceId}</td>
-                                                <td>${record.timestamp}</td>
-                                                <td>${record.data}</td>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF">${record.data}</td>
                                             </tr>
                                         </c:forEach>
                                     </table>
@@ -62,13 +67,14 @@
                                         </tr>
                                         <c:forEach var="record" items="${HRRecords}">
                                             <tr>
-                                                <td>${record.deviceId}</td>
-                                                <td>${record.timestamp}</td>
-                                                <td>${record.data}</td>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF">${record.data}</td>
                                             </tr>
                                         </c:forEach>
                                     </table>
                                 </div>
+                                
                                 <div id="tabs-3">
                                     <table class="query-result" id="table3" width="700" border="0" cellpadding="0"
                                            cellspacing="0">
@@ -79,13 +85,86 @@
                                         </tr>
                                         <c:forEach var="record" items="${SPO2Records}">
                                             <tr>
-                                                <td>${record.deviceId}</td>
-                                                <td>${record.timestamp}</td>
-                                                <td>${record.data}</td>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF">${record.data}</td>
                                             </tr>
                                         </c:forEach>
                                     </table>
                                 </div>
+                                
+                                 <div id="tabs-4">
+                                    <table class="query-result" id="table4" width="700" border="0" cellpadding="0"
+                                           cellspacing="0">
+                                        <tr>
+                                            <th width="20%">硬件编号</th>
+                                            <th width="40%">监测时间</th>
+                                            <th width="40%">数值</th>
+                                        </tr>
+                                        <c:forEach var="record" items="${RESPRecords}">
+                                            <tr>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF">${record.data}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
+                                
+                                 <div id="tabs-5">
+                                    <table class="query-result" id="table5" width="700" border="0" cellpadding="0"
+                                           cellspacing="0">
+                                        <tr>
+                                            <th width="20%">硬件编号</th>
+                                            <th width="40%">监测时间</th>
+                                            <th width="40%">数值</th>
+                                        </tr>
+                                        <c:forEach var="record" items="${PRRecords}">
+                                            <tr>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF">${record.data}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
+                                
+                                 <div id="tabs-6">
+                                    <table class="query-result" id="table6" width="700" border="0" cellpadding="0"
+                                           cellspacing="0">
+                                        <tr>
+                                            <th width="20%">硬件编号</th>
+                                            <th width="40%">监测时间</th>
+                                            <th width="40%">数值</th>
+                                        </tr>
+                                        <c:forEach var="record" items="${NIBPRecords}">
+                                            <tr>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF">${record.data}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
+                                
+                                 <div id="tabs-7">
+                                    <table class="query-result" id="table7" width="700" border="0" cellpadding="0"
+                                           cellspacing="0">
+                                        <tr>
+                                            <th width="20%">硬件编号</th>
+                                            <th width="40%">监测时间</th>
+                                            <th width="40%">数值</th>
+                                        </tr>
+                                        <c:forEach var="record" items="${BSRecords}">
+                                            <tr>
+                                                <td style="color:#0088FF">${record.deviceId}</td>
+                                                <td style="color:#0088FF">${record.timestamp}</td>
+                                                <td style="color:#0088FF"s>${record.data}</td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
+                                
                             </div>
 
                         </div>
