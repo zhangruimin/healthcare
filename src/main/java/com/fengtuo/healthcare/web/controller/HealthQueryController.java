@@ -40,17 +40,9 @@ public class HealthQueryController extends BaseController{
         List<DigitRecord> temperatureRecords = digitRecordRepository.find(userId, DataType.TEMP1, startTime);
         List<DigitRecord> HRRecords = digitRecordRepository.find(userId, DataType.HR, startTime);
         List<DigitRecord> SPO2Records = digitRecordRepository.find(userId, DataType.SPO2, startTime);
-        
-        //ºôÎüÂÊ
         List<DigitRecord> RESPRecords = digitRecordRepository.find(userId, DataType.RESP, startTime);
-        
-        //ÂöÂÊ
         List<DigitRecord> PRRecords = digitRecordRepository.find(userId, DataType.PR, startTime);
-        
-        //ÑªÑ¹
         List<DigitRecord> NIBPRecords = digitRecordRepository.find(userId, DataType.NIBP, startTime);
-        
-        //ÑªÌÇ
         List<DigitRecord> BSRecords = digitRecordRepository.find(userId, DataType.BS, startTime);
         
         model.addAttribute("temperatureRecords", convert(temperatureRecords));

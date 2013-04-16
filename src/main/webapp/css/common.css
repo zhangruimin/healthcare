@@ -553,3 +553,14 @@ dl dd {
     font-size: 30px;
 }
 
+.side-btn{
+    border: 0 none;
+    height: auto;
+    left: 20px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    position: relative;
+    top: 15px;
+    vertical-align: middle;
+}
+
